@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="A short review of Recommender System.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Recommender Systems">
+<meta property="og:url" content="http://example.com/2020/12/24/Recommender-Systems/index.html">
+<meta property="og:site_name" content="RookieAju&#39;s workshop">
+<meta property="og:description" content="A short review of Recommender System.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-24T13:51:36.000Z">
+<meta property="article:modified_time" content="2020-12-24T13:54:02.096Z">
+<meta property="article:author" content="RookieAju&#39;s">
+<meta property="article:tag" content="POLIMI">
+<meta property="article:tag" content="Recommender System">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/12/24/Recommender-Systems/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Recommender Systems | RookieAju's workshop</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">RookieAju's workshop</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Each question deserves an answer</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recommender-Systems"><span class="nav-number">1.1.</span> <span class="nav-text">Recommender Systems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Representation-ICM-amp-URM"><span class="nav-number">1.2.</span> <span class="nav-text">Data Representation: ICM&amp;URM</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Taxonomy-of-Recommender-Systems"><span class="nav-number">2.</span> <span class="nav-text">Taxonomy of Recommender Systems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Categorizing-algorithms"><span class="nav-number">2.1.</span> <span class="nav-text">Categorizing algorithms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-Based-Filtering"><span class="nav-number">2.2.</span> <span class="nav-text">Content Based Filtering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collaborative-Filtering"><span class="nav-number">2.3.</span> <span class="nav-text">Collaborative Filtering</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ratings-Predictions-and-Recommendations"><span class="nav-number">3.</span> <span class="nav-text">Ratings, Predictions and Recommendations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inferring-preferences"><span class="nav-number">4.</span> <span class="nav-text">Inferring preferences</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Formal-representation-of-input"><span class="nav-number">4.1.</span> <span class="nav-text">Formal representation of input.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nonpersonalized-Recommenders"><span class="nav-number">5.</span> <span class="nav-text">Nonpersonalized Recommenders</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scales-and-Normalization"><span class="nav-number">6.</span> <span class="nav-text">Scales and Normalization</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ratings-distribution"><span class="nav-number">6.1.</span> <span class="nav-text">Ratings distribution.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Computing-the-ratings"><span class="nav-number">7.</span> <span class="nav-text">Computing the ratings.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Global-Effects"><span class="nav-number">8.</span> <span class="nav-text">Global Effects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#General-description"><span class="nav-number">8.1.</span> <span class="nav-text">General description.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computing-averages-and-biases"><span class="nav-number">8.2.</span> <span class="nav-text">Computing averages and biases</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Requirements"><span class="nav-number">9.</span> <span class="nav-text">Requirements</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Functional-vs-non-functional-requirements"><span class="nav-number">9.1.</span> <span class="nav-text">Functional vs. non-functional requirements.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Non-functional-Requirements"><span class="nav-number">9.2.</span> <span class="nav-text">Non-functional Requirements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quality-Overall"><span class="nav-number">9.3.</span> <span class="nav-text">Quality Overall</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Quality-Indicators"><span class="nav-number">10.</span> <span class="nav-text">Quality Indicators</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluation-Techiniques"><span class="nav-number">11.</span> <span class="nav-text">Evaluation Techiniques</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Offline-Evaluation"><span class="nav-number">12.</span> <span class="nav-text">Offline Evaluation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Algorithms"><span class="nav-number">13.</span> <span class="nav-text">Algorithms</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recommender-Algorithm"><span class="nav-number">13.1.</span> <span class="nav-text">Recommender Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relevant-Data-Sets"><span class="nav-number">13.2.</span> <span class="nav-text">Relevant Data Sets</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluation-Techniques"><span class="nav-number">14.</span> <span class="nav-text">Evaluation Techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hold-out-techniques"><span class="nav-number">14.1.</span> <span class="nav-text">Hold-out techniques</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K-fold-evaluation"><span class="nav-number">14.2.</span> <span class="nav-text">K-fold evaluation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leave-one-out-technique"><span class="nav-number">14.3.</span> <span class="nav-text">Leave-one-out technique.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-Metrics"><span class="nav-number">15.</span> <span class="nav-text">Error Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Limitations-of-error-metrics"><span class="nav-number">15.1.</span> <span class="nav-text">Limitations of error metrics.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparing-the-distributions-of-ratings"><span class="nav-number">15.2.</span> <span class="nav-text">Comparing the distributions of ratings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Assumption-of-error-metrics"><span class="nav-number">15.3.</span> <span class="nav-text">Assumption of error metrics</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Classification-metrics"><span class="nav-number">16.</span> <span class="nav-text">Classification metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recall"><span class="nav-number">16.1.</span> <span class="nav-text">Recall</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Precision"><span class="nav-number">16.2.</span> <span class="nav-text">Precision</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fallout"><span class="nav-number">16.3.</span> <span class="nav-text">Fallout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Combining-metrics"><span class="nav-number">17.</span> <span class="nav-text">Combining metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Precision-or-recall"><span class="nav-number">17.1.</span> <span class="nav-text">Precision or recall?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Measure-combining-precision-and-recall"><span class="nav-number">17.2.</span> <span class="nav-text">F-Measure: combining precision and recall.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROC-Curve"><span class="nav-number">17.3.</span> <span class="nav-text">ROC Curve</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Popularity-bias"><span class="nav-number">17.4.</span> <span class="nav-text">Popularity bias.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Utility"><span class="nav-number">17.5.</span> <span class="nav-text">Utility.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ranking-Metrics"><span class="nav-number">18.</span> <span class="nav-text">Ranking Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ranking-in-general"><span class="nav-number">18.1.</span> <span class="nav-text">Ranking in general.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Average-Reciprocal-Hit-Rank"><span class="nav-number">18.2.</span> <span class="nav-text">Average Reciprocal Hit-Rank.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mean-Average-Precision"><span class="nav-number">18.3.</span> <span class="nav-text">Mean Average Precision.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spearman%E2%80%99s-Rho"><span class="nav-number">18.4.</span> <span class="nav-text">Spearman’s Rho.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kendall%E2%80%99s-Tau"><span class="nav-number">18.5.</span> <span class="nav-text">Kendall’s Tau.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluating-Diversity"><span class="nav-number">19.</span> <span class="nav-text">Evaluating Diversity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Defining-diversity"><span class="nav-number">19.1.</span> <span class="nav-text">Defining diversity.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Measuring-distance"><span class="nav-number">19.2.</span> <span class="nav-text">Measuring distance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Balancing-quality-and-diversity"><span class="nav-number">19.3.</span> <span class="nav-text">Balancing quality and diversity.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluating-Novelty"><span class="nav-number">20.</span> <span class="nav-text">Evaluating Novelty</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Defining-novelty"><span class="nav-number">20.1.</span> <span class="nav-text">Defining novelty.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Estimating-novelty"><span class="nav-number">20.2.</span> <span class="nav-text">Estimating novelty.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Content-Based-Filtering-1"><span class="nav-number">21.</span> <span class="nav-text">Content Based Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition"><span class="nav-number">21.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ICM-Item-Content-Matrix"><span class="nav-number">21.2.</span> <span class="nav-text">ICM - Item Content Matrix</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cosine-Similarity"><span class="nav-number">22.</span> <span class="nav-text">Cosine Similarity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-cosine"><span class="nav-number">22.1.</span> <span class="nav-text">The cosine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shrinking"><span class="nav-number">22.2.</span> <span class="nav-text">Shrinking</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Estimating-ratings"><span class="nav-number">23.</span> <span class="nav-text">Estimating ratings</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Similarity-Matrix"><span class="nav-number">24.</span> <span class="nav-text">Similarity Matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Improving-ICM"><span class="nav-number">25.</span> <span class="nav-text">Improving ICM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TF-IDF-Term-Frequencies-Inverse-Document-Frequencies"><span class="nav-number">26.</span> <span class="nav-text">TF-IDF: Term Frequencies - Inverse Document Frequencies</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Term-Frequency"><span class="nav-number">26.1.</span> <span class="nav-text">Term Frequency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inversed-Document-Frequency"><span class="nav-number">26.2.</span> <span class="nav-text">Inversed Document Frequency</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#User-Based-Filtering"><span class="nav-number">27.</span> <span class="nav-text">User Based Filtering</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Collaborative-User-Based"><span class="nav-number">28.</span> <span class="nav-text">Collaborative User-Based</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#User-Rating-Matrix-URM"><span class="nav-number">28.1.</span> <span class="nav-text">User Rating Matrix - URM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#User-Similarity"><span class="nav-number">28.2.</span> <span class="nav-text">User Similarity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pearson-Correlation-Coefficient"><span class="nav-number">28.3.</span> <span class="nav-text">Pearson Correlation Coefficient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Delta"><span class="nav-number">28.4.</span> <span class="nav-text">The Delta</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Item-Based-Collaborative-Filtering"><span class="nav-number">29.</span> <span class="nav-text">Item-Based Collaborative Filtering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IBCF"><span class="nav-number">29.1.</span> <span class="nav-text">IBCF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IBCF-explicit-ratings"><span class="nav-number">29.2.</span> <span class="nav-text">IBCF explicit ratings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-adjusted-cosine"><span class="nav-number">29.3.</span> <span class="nav-text">The adjusted cosine</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-considerations-about-CF"><span class="nav-number">30.</span> <span class="nav-text">Some considerations about CF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Normalization"><span class="nav-number">30.1.</span> <span class="nav-text">Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K-nearest-neighbours"><span class="nav-number">30.2.</span> <span class="nav-text">K-nearest neighbours</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Choosing-between-user-based-or-item-based-CF"><span class="nav-number">30.3.</span> <span class="nav-text">Choosing between user-based or item-based CF</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Association-Rules"><span class="nav-number">31.</span> <span class="nav-text">Association Rules</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">RookieAju's</p>
+  <div class="site-description" itemprop="description">NLP, PS4, Cyberpunk2077, Shenzhen, DeepLearning, Tongji</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/24/Recommender-Systems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="RookieAju's">
+      <meta itemprop="description" content="NLP, PS4, Cyberpunk2077, Shenzhen, DeepLearning, Tongji">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RookieAju's workshop">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Recommender Systems
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-24 21:51:36 / Modified: 21:54:02" itemprop="dateCreated datePublished" datetime="2020-12-24T21:51:36+08:00">2020-12-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>A short review of Recommender System.</p>
+<a id="more"></a>
+
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="Recommender-Systems"><a href="#Recommender-Systems" class="headerlink" title="Recommender Systems"></a>Recommender Systems</h2><p>The main goal of a recommender system is to provide users with hints and suggestions about items that can meet their interest. </p>
+<blockquote>
+<p>The Internet, today, provides a large variety of examples: hotels recommended by Booking-dot-com, books recommended by Amazon, songs by Spotify, movies by Netflix, and many more.</p>
+</blockquote>
+<ol>
+<li>Recommender systems algorithms need, as their main input, a set of available items (e.g., books, movies, hotels), enriched via a set of descriptive attributes. For the example of movies, these attributes could be: title, year of release, genre, director, actors, etc.</li>
+<li>Recommender systems algorithms, beside the “items”, need to know about “users”, since each recommendation aims at an individual user. Demographic data, like age, nationality, gender, area of living, are possible attributes to describe a user. In addition, algorithms need to know about user preferences. For example (for movies): science fiction (genre), Harrison Ford (actor).</li>
+<li>A third type of information that characterizes a user is the how she interacts with items: for instance, a user may have rated some movies. In this case, we explicitly know the opinion of the user of these movies. Alternatively, we may know which books a user has bought in the past, or which movies a user have watched. We can implicitly assume that, if a user watched a movie or bought a book, probably the user likes that movie or that book. Similarly, if a user stopped watching a movie after 5 minutes, we can implicitly assume that the user did not like that movie. Interactions have attributes as well. These attributes are called “the context”. Example of contextual attributes are: people, time, and weather.</li>
+</ol>
+<p>The same user may have different opinions on the same item, based on the context. For instance, when choosing a restaurant for dinner, the choice could be different if the user is planning a business dinner or a romantic dinner. Similarly, if the weather is sunny, the user might prefer a restaurant with an outdoor garden, while if the weather is cold, the user might prefer a restaurant with a fireplace.</p>
+<h2 id="Data-Representation-ICM-amp-URM"><a href="#Data-Representation-ICM-amp-URM" class="headerlink" title="Data Representation: ICM&amp;URM"></a>Data Representation: ICM&amp;URM</h2><p>Data representation. We examine now how to represent the input for recommender systems. <strong>The ICM, Item Content Matrix, represents a table where each row is associated to one item, while each column corresponds to one attribute</strong>. In the simplest form, the possible values in the matrix are 1 (if the attribute-value belongs to the item) or 0 (if the attribute-value does not belong to the item). If, for example, actor “x” plays in the movie “y”, the value would be 1 for the row-corresponding to “y”, at the column corresponding to “x”. </p>
+<p>In a more sophisticated version, the value are real numbers expressing the relevance of the attribute-value for the item. If an actor, for example, plays the major role in a movie, he may get value 1.0. If he plays a medium role, the value could be 0.5. <strong>Another important matrix is the User Rating Matrix: in the user rating matrix, rows represent users, and columns represent items. Numbers represent ratings assigned by each user to each item, either implicitly or explicitly.</strong></p>
+<h1 id="Taxonomy-of-Recommender-Systems"><a href="#Taxonomy-of-Recommender-Systems" class="headerlink" title="Taxonomy of Recommender Systems"></a>Taxonomy of Recommender Systems</h1><p>This section takes into account three points: categorizing algorithms, content-based filtering and collaborative filtering.</p>
+
+
+<h2 id="Categorizing-algorithms"><a href="#Categorizing-algorithms" class="headerlink" title="Categorizing algorithms"></a>Categorizing algorithms</h2><p>Recommender algorithms can be classified into two categories: <strong>personalized and non-personalized recommendations</strong>. With non-personalized recommendations, all users receive the same recommendations. </p>
+<blockquote>
+<p>Examples are: the most popular movies, the recent music hits, the best rated hotels. With personalized recommendations, different users receive different recommendations. </p>
+</blockquote>
+<p>The focus of this course is on personalized recommendations, although we will use non-personalized recommendations as baselines. The core idea for personalized recommenders is that they make “better” recommendations than non-personalized systems. However, we will see that <em>there are some scenarios in which non-personalized recommendations are still a good choice</em>. </p>
+<blockquote>
+<p>For instance, if you recommend the most popular movies, by definition, you will recommend movies that most users like.</p>
+</blockquote>
+<p>Techniques for personalized recommendations can be further classified in a number of different categories. The most important are: <strong>Content-Based Filtering and Collaborative Filtering</strong>. </p>
+<h2 id="Content-Based-Filtering"><a href="#Content-Based-Filtering" class="headerlink" title="Content Based Filtering"></a>Content Based Filtering</h2><p>The basic idea with Content-Based recommendations is to recommend items similar to the items a user liked in the past. </p>
+<blockquote>
+<p>For instance, if you liked the movie “Indiana Jones”, the recommender system could recommend you other movies directed by the same director (Steven Spielberg), and/or with the same main actor (Harrison Ford). As a second example, when you are looking at a page describing a product on the Amazon web site, you receive recommendations listing products similar to the one you are looking at. </p>
+</blockquote>
+<p>Content-Based filtering has been one of the first approaches used to build recommender systems. One important prerequisite for Content-Based filtering to work is to have, for each product, a list of “good quality” attributes (such as genre, director, actors, in the case of movies). We will see later in the course what makes an attribute a good attribute.</p>
+<h2 id="Collaborative-Filtering"><a href="#Collaborative-Filtering" class="headerlink" title="Collaborative Filtering"></a>Collaborative Filtering</h2><p><strong>Collaborative Filtering techniques do not require any item attribute to work, but relay on the opinions of a community of users.</strong> The first type of collaborative recommender system invented was based on user-user techniques (or user-based techniques). <strong>The basic idea is to search for users with a similar taste, that is, users sharing the same opinion on several items.</strong> </p>
+<blockquote>
+<p>As an example: if Bob and Alice have the same opinions on many movies, it is likely that, if Bob likes a movie, also Alice will like the same movie. </p>
+</blockquote>
+<p>This idea seems reasonable, but we will see later in the course that the user-user approach doesn’t always work well. In many scenarios, user-based techniques fail to provide good recommendations, or are not able to provide any type of recommendation at all. </p>
+<p>The second type of collaborative recommenders are <strong>item-item or item-based algorithms</strong>. </p>
+<p>Item-item collaborative filtering was first invented and used by Amazon.com in 1998. <strong>The basic idea is to calculate the similarity between each pair of items according to how many users have the same opinions on the two items</strong>. </p>
+<blockquote>
+<p>For instance, if most users who liked “Indiana Jones” also liked “Star Wars”, it is highly probable that a user who likes “Indiana Jones” will also appreciate “Star Wars”. Many commercial recommenders today rely on item-item algorithms. </p>
+</blockquote>
+<p>During the Netflix competition, a new family of collaborative filtering algorithms has been invented, based on a technique called <strong>matrix factorization</strong>, which is part of a more general family of algorithms called dimensionality reduction. Contrary to user-user and item-item algorithms, it is not easy to provide an intuitive explanation on how algorithms based on matrix factorization work.</p>
+<h1 id="Ratings-Predictions-and-Recommendations"><a href="#Ratings-Predictions-and-Recommendations" class="headerlink" title="Ratings, Predictions and Recommendations"></a>Ratings, Predictions and Recommendations</h1><p>“Explicit rating” means that the user explicitly states her satisfaction with an item (typically using a 1 to 5 scale). Ratings by users are a very important input for recommender systems. </p>
+<p>In many application scenarios, however, it is not possible (or advisable) to ask for the opinion of the user. Rating by users may be difficult for different reasons. Users are not always happy to “waste” their time with ratings. Annoyed users may provide “random feedback”. And, in fact, frequent rating requests may annoy users. (Reminder: when designing a Recommender System, it is important not to annoy the user with too many requests!). Some technologies do not allow to easily collect explicit ratings by the users (for example, traditional TV). </p>
+<p>“Implicit rating” is an important alternative to explicit rating. Implicit rating attempts to “guess” the opinion of the user. For example: you buy a book from Amazon. I don’t know if you liked it. But I know that somehow you did something with it. I can assume that if you buy a book, probably it’s because you like something in the description, you like the story. I can assume that if you buy a product you like something in that product. </p>
+<p>This assumption is not always true. Sometimes, the user buys a product, tries it, and is not happy about it. If there are no other options available, however, we’re obliged to make this assumption. Another example. Assume that Mary (a user) buys a movie on Netflix. We may assume, in general, that she likes that movie (since she bought it). If, however, Mary stops watching the movie after a few minutes, we may assume that she did not like it. </p>
+<p>But this assumption could be true in general (and therefore statistically valid in the end), but wrong in specific cases (the user may have received a phone call, for example). For various reasons, implicit ratings are more reliable when applied to positive ratings (what users like), rather than to negative ratings (what users don’t like).</p>
+<h1 id="Inferring-preferences"><a href="#Inferring-preferences" class="headerlink" title="Inferring preferences"></a>Inferring preferences</h1><p>This section describes the characteristics of the formal representation of input and discusses about the sparsity of User Rating Matrix.</p>
+<h2 id="Formal-representation-of-input"><a href="#Formal-representation-of-input" class="headerlink" title="Formal representation of input."></a>Formal representation of input.</h2><p><em>Implicit or explicit ratings</em> can be collected in various way. In the following, we will discuss how to use ratings, independently from the way they were collected. </p>
+<p>Let us assume that implicit ratings are in a scale from zero to one. Zero means you have no information. (be careful, not a bad rating but no information!). 1 means that a user is perfectly happy with the item. </p>
+<p>More formally, URM (User Rating Matrix) is a matrix where each row represents a user and each column represents an item. rui is value for the row corresponding to user, “u”, and the column corresponding to item, “i”. </p>
+<p>URM (or something similar) is the main input of almost all recommender systems. URM, however, is almost never implemented as a matrix, this matrix could be huge (and with too many 0 in it). <strong>Very very SPARSE.</strong></p>
+<h1 id="Nonpersonalized-Recommenders"><a href="#Nonpersonalized-Recommenders" class="headerlink" title="Nonpersonalized Recommenders"></a>Nonpersonalized Recommenders</h1><p><strong>“Non-personalized” recommender systems suggest the same items to all users.</strong> The easiest and best way to make non-personalized recommendations is to <em>recommend the most popular items.</em> </p>
+<ol>
+<li>“Most Popular” items are those who have most ratings (whatever is their value); </li>
+<li>“Best rated items” instead are those with the highest average values of ratings. </li>
+</ol>
+<p>In order to compute “popularity”, recommender systems have to count the number of zero elements of the columns. After counting all the non-zero elements for each column, we can take the columns with the highest result and those will be “the most popular items”. </p>
+<p>There is a contradictory situation with popularity: <strong>the positive side is that users are likely to like the items recommended; the negative side is that there is little added value, since it is likely that users were already aware of those items.</strong> </p>
+<p>“Best rated” items have the highest average ratings; they are, for non-personalized recommendations, an alternative to most popular items. </p>
+<p>To compute the average ratings, we may use the standard notion of average; but in reality this does <strong>NOT</strong> work very well. The problem is that an average computed over several ratings is much more reliable than an average computed over a few ratings. </p>
+<blockquote>
+<p>For example: suppose that there is one restaurant which has only one rating. If the rating is 5, it may have been solicited by the owner. If the rating is 1, it may have been solicited by a competitor. In both cases the “average” is not a reliable measure. </p>
+</blockquote>
+<p>The number of users who rated an item is called the <strong>support</strong>; ratings with high support are more reliable than ratings with low support.</p>
+<h1 id="Scales-and-Normalization"><a href="#Scales-and-Normalization" class="headerlink" title="Scales and Normalization"></a>Scales and Normalization</h1><p>In this section, we discuss about scales and normalization, taking into account ratings distribution and computing ratings.</p>
+<h2 id="Ratings-distribution"><a href="#Ratings-distribution" class="headerlink" title="Ratings distribution."></a>Ratings distribution.</h2><p>In a typical scenario, in a scale 1 to 5, most of the ratings have value 3, and besides that, most of the ratings will be positive and there will be very few negative ones. </p>
+<blockquote>
+<p>Normally, <strong>people are more easily convinced to rate something if they liked it</strong>. Users are more willing to share their experience for products they liked and less for products they didn’t like. If we plot the distribution of ratings about all items (including good and bad ones) most users give a rating between 3 and 5. Very few users give ratings 1 and 2. </p>
+</blockquote>
+<p>This distribution doesn’t reflect the distribution of the quality of a product, and probably does not even represent the opinion of the users. It is somehow related to the way people are used to rate products: <strong>most users do not bother to provide negative ratings, while happy users are willing to share their experience.</strong> </p>
+<h1 id="Computing-the-ratings"><a href="#Computing-the-ratings" class="headerlink" title="Computing the ratings."></a>Computing the ratings.</h1><p>Let’s suppose we want to compute the average rating of the item “i”,”bi” is the average rating of product “i”. </p>
+<p>The simple definition of the rating an item “i” is: <strong>“The Average Rating of an item is equal to the sum of the received ratings divided by the number of received ratings</strong>“ </p>
+<p>NU is the number of rows (for the column corresponding to i) with value other than 0, i.e. <em>the number of users that have provided a rating</em>. If very few users (or only one) has given a rating, this is not a reliable measure. </p>
+<p>We can improve the reliability with the trick of adding a constant, <strong>shrink term</strong>, C at the divider.</p>
+<p>**”The Average Rating of item is equal to the sum of the received ratings divided by the number of received ratings plus a shrink factor” **</p>
+<p>If NU is high, the average will not be much affected; if NU is small, the average will lower significantly. </p>
+<blockquote>
+<p>For Example: Suppose we have two restaurants; one of them has 1 rating equal to 5; another one has 100 ratings, all of them 5. Without using a shrink term, both restaurants have the standard average rating of 5. Using a C=10 instead, the first restaurant has an average of 0.45 and the second of 4.54. </p>
+</blockquote>
+<p>The shrinking term is a crude technique that helps to take into account the bias implicit when there are only few ratings for one item. There are more sophisticated approaches, but often they generate results quite similar to those obtained with the shrinking term. A</p>
+<blockquote>
+<p>nother Example: Check on some recommender systems (e.g. Trip Advisor): you may verify that, for items with few ratings, the overall rating of an item is not based on the standard mathematical average.</p>
+</blockquote>
+<h1 id="Global-Effects"><a href="#Global-Effects" class="headerlink" title="Global Effects"></a>Global Effects</h1><p>This section describes the so-called algorithm global effects, giving a general overview and showing how to compute averages and biases.</p>
+<h2 id="General-description"><a href="#General-description" class="headerlink" title="General description."></a>General description.</h2><p>The “global effects” technique is very important for two reasons: </p>
+<ol>
+<li>It is a non-personalized formula which is able to provide good quality recommendations. </li>
+<li>Secondly, it is a building block for much more sophisticated techniques. And, in fact, advanced personalized techniques do not work well, unless we combine them with global effects. </li>
+</ol>
+<p>Here is the key idea: normally, <strong>most of the users tend to give (almost) the same ratings to different items.</strong></p>
+<blockquote>
+<p>Let’s show how in an extensive example: in order to detect “good movies” we can compare the average rating of each movie with respect to the average rating of all the movies. Now suppose that the average rating for all movies is 3.5. If a movie has an average rating of 3, it means that the quality of this movie is less than the average, while if it is 3.8, the movie is better than average.</p>
+</blockquote>
+<h2 id="Computing-averages-and-biases"><a href="#Computing-averages-and-biases" class="headerlink" title="Computing averages and biases"></a>Computing averages and biases</h2><p>There are six steps to be considered. </p>
+<ol>
+<li>We compute <strong>the average rating of all the movies</strong>. For each item, we sum together the rating given by all users for that item; then, we add these sums for all items; then, we divide by the number of explicit ratings other than zero. Zero means we have no information (it is not a bad rating). </li>
+<li>We compute now for each non-zero rating a new normalized rating, subtracting the average computed in step one to the rating itself. So, if an item was rated four by the user, and the average rating for all the items is three point five, the new rating is 0.5. Applying this rule to all ratings (other than zero), we compute a new URM removing the global effect. </li>
+<li>Now we compute a different rating for item by adding up all the normalized ratings by all users and dividing by the number of users who gave a rating. This new value is called the item bias: it tells us the bias of that item with respect to all items. </li>
+<li>We compute yet another rating, creating a third version of U R M. For each item, we subtract the item bias from each normalized rating, obtaining another rating. </li>
+<li>For each user, we compute the user bias. This is the sum of all her ratings (using the version we have computed before) divided by the number of items for which the user has provided a rating. <em>This step takes into account the fact that different people have psychologically different rating scales. Some people are very nice, optimistic people, so if they do not like something, they give a rating of four, while there are some other users that are not friendly and if they like much a product, they give three.</em><blockquote>
+<p>Here is a funny example of a user bias: I was reading the reviews on Trip Advisor about a luxury hotel and there was a review from a user who gave a rating of two out of ten: the user was complaining because the coffee machine in the room was not an “Espresso” but it was of another kind. So, according to this user’s opinion, the score for the hotel would be two. This user probably was giving very low ratings to all the hotels. This is an example of a user bias. </p>
+</blockquote>
+</li>
+<li>Step six: the final rating of user for item can be computed adding the three elements: overall average (for all items and all users) plus the item bias plus the user bias. This is the final formula for the Global Effects. </li>
+</ol>
+<p>Recap: </p>
+<ol>
+<li>Compute the average of the ratings (μ) from URM. </li>
+<li>Remove this quantity from the URM. </li>
+<li>Compute the average for each item (b<sub>i</sub>). </li>
+<li>Remove this quantity from the URM. </li>
+<li>Compute the average for each user (b<sub>u</sub>). </li>
+<li>Compute new rating, summing the average of ratings to the item bias to the user bias. </li>
+</ol>
+<p>So now we have 3 terms: “u” is a scalar, “b<sub>i</sub>“ is a vector (1 for each product), “b<sub>u</sub>“ is a vector (1 for each user). This way, we can estimate the rating a user would give to an item. </p>
+<p>This is <strong>not exactly non-personalized</strong>, because there is a term that depends on the user. Each user is receiving a different estimation. Technically speaking, this should be considered as a personalized recommendation, but since this technique is computed in a very basic way, by just computing the average, it is often classified as a non-personalized recommendation.</p>
+<h1 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h1><p>This section presents basic concepts about requirements for recommender systems.</p>
+<h2 id="Functional-vs-non-functional-requirements"><a href="#Functional-vs-non-functional-requirements" class="headerlink" title="Functional vs. non-functional requirements."></a>Functional vs. non-functional requirements.</h2><p>For all pieces of SW there is an important distinction between functional requirements (<em>what the SW does</em>) and non-functional requirements (<em>how the SW does its job</em>). </p>
+<p>It is clear that functional requirements have the priority, since if a piece of SW fails in performing its functions, it is useless. It may happen however, that the piece of SW, although it fully satisfies functional requirements, it is not acceptable, because non-functional requirements are not adequately satisfied.</p>
+<h2 id="Non-functional-Requirements"><a href="#Non-functional-Requirements" class="headerlink" title="Non-functional Requirements"></a>Non-functional Requirements</h2><ol>
+<li>Response time: Response time is a crucial non-functional requirement, since <strong>even the best recommender system would not be acceptable if the it takes too much time to get the recommendation</strong>. A concrete example: recommendations shown in webpages of online shops must be very fast; it is accepted today that users do not wait for a page to load more than 4 sec. If the recommender systems slow down the loading of the page, it will become useless or even negative.</li>
+<li>Scalability: Scalability is an important non-functional requirement for recommender systems. Environment like Netflix, Amazon, or Google need to manage millions of users and to catalog millions of items. Millions of products. Recommender systems need to be scalable in the sense that <em>coping with growing users can be accomplished by simply adding new computers in the data center</em>. If applications are not scalable, however, adding new computing power will not help.</li>
+<li>Privacy and Security: Privacy and security are important non-functional requirements. Regulations dictate that data about users and their behaviour need to be protected, and not accessible to outsiders. General regulations exist everywhere; in Europe we have European guidelines and national regulations. A typical concern is about reverse engineering; recommendations are often based on past actions of users; it must be prevented that outsiders can steel information about recommendations and from there can induce the behaviour of users.</li>
+<li>User Interface: The interface of a recommender system, is a very important nonfunctional requirement. One example. <em>What is the best moment to show a recommendation? As soon as the user logs in into the system, or when she is surfing in the catalog of products, or when she is reading the description of a product, or when she is doing the checkout? Also, how many products, how many items should be shown to the user? One, two, five, 10? Also, how should recommendations be shown to the users using stars? (one to three, one to five, one to 10?). Thumbs up thumbs down?</em></li>
+</ol>
+<h2 id="Quality-Overall"><a href="#Quality-Overall" class="headerlink" title="Quality Overall"></a>Quality Overall</h2><p>A recommender system needs data in order to provide recommendations. Data about users, data about items, data about attributes describing the items, etc. </p>
+<p>If data are faulty, or missing or incorrect, the quality of a recommender system will be poor. The quality of algorithms for providing recommendations is a main concern of this course; we should be, however, of the relevance of the other aspects. </p>
+<p>Experimental data indicate that the quality of algorithms count for 20% (more or less), of the total quality perceived by the user. So designing a full environment of a recommender systems (from data to the user interface), the designer should balance the effort across the various elements, being aware that algorithms are just a part of the whole system.</p>
+<h1 id="Quality-Indicators"><a href="#Quality-Indicators" class="headerlink" title="Quality Indicators"></a>Quality Indicators</h1><ol>
+<li>Relevance and Coverage: Relevance is the ability of recommending items that very likely most users will like. One way to design a good recommender in terms of relevance is to <strong>never recommend those products that few people like</strong>. Coverage is the ability of recommending most of the items of (a possibly very large) set of items. <strong>Coverage is the percentage of items that a recommender system is able to recommend</strong>. Recommender systems with high relevance, may have a low coverage (since they recommend items that most users like), and vice versa.</li>
+<li>Novelty and diversity: <strong>Novelty is the ability of recommending items unknown to the user</strong>. Recommending new items (e.g. new restaurants or new books) may be an added value for he users. <strong>Diversity is the ability to diversify the items recommended</strong>. If the user has known preferences (say that she likes chines restaurants or science fiction movies) it is safe to recommend items corresponding to the taste. But it can be boring, so it could be wise sometimes to “diversify” recommendations.</li>
+<li>Consistency and Confidence: Consistency is about the stability of the recommendations. Some recommender systems are very dynamic, continuously updating the user profiles, and therefore modifying their recommendation. <em>An example: the recommender system suggests movies “x” and “y”. Assume that the user watches “x” and rates it very high. The recommender system may update her profile and exclude “y” from next recommendation. This inconsistency may confuse the user.</em> There are some recommender systems that can be too dynamic in their behavior. <strong>Confidence is the ability of measuring how much the system is sure about a recommendation</strong>. A confidence of 100% is practically impossible. What is the proper level of confidence? 90%? 60%? Is it wise to recommend an item with a level of confidence not very high? (may be for increasing diversification)</li>
+<li>Serendipity: Serendipity is the ability of “surprising” the user surprise you. Surprising means to recommend something unusual for the user, who can “discover” something unexpected. A recommender algorithm is serendipitous if it recommends something that the user would never be able to find or would never search for.</li>
+</ol>
+<h1 id="Evaluation-Techiniques"><a href="#Evaluation-Techiniques" class="headerlink" title="Evaluation Techiniques"></a>Evaluation Techiniques</h1><ol>
+<li>Direct User Feedback: ask some real users to define their level of satisfaction. </li>
+<li>A/B Testing: Compare the behaviour of the users who receive recommendations with the behaviours of the uses who do not receive recommendations(如：收到推荐的人是否购买的product增加了？)</li>
+<li>Controlled Experientments: Use NOT real-life users to test the satisfaction and give feedback.</li>
+<li>Crowdsourcing: asking volunteers to answer online questionnaire.</li>
+</ol>
+<h1 id="Offline-Evaluation"><a href="#Offline-Evaluation" class="headerlink" title="Offline Evaluation"></a>Offline Evaluation</h1><p>Above the evaluation techniques we talked about are online evaluations, which evolve real users or models like real users. now we talk about offline evaluation.</p>
+<ol>
+<li>Ground Truth: Let us assume that several users (say 100000) have expressed their opinion about several items (say 10,000). In reality each user expresses an opinion about a few items, and each item is reviewed by few users. We call <strong>“ground truth”</strong> the opinion of the users about the items. In the field of recommender system there is the adoption of a peculiar terminology: <em>we call “relevant opinions” the positive ones, and “relevant users”, those who have expressed them</em>. The other users are the irrelevant ones.</li>
+<li>Top-K recommendations: Let us assume that a recommender system computes in a given situation, for a given user, which products to recommend. We call “top-K” recommendation, the K items that the recommender system predicts to be liked most by the user. In order to assess the quality of the recommender system, we need to compare top-k recommendation with the ground truth, that is, opinions expressed by the users.</li>
+<li>Error metrics: We use the “error metrics” to measure the difference between the rating estimated by a recommender system and the true rating provided by the <strong>ground truth</strong>. Given a user and an item we can ask the recommender system to provide a rating: say 7 out of 10, for example. Let us assume than the rating in the ground truth (for that user and that item) is 4. The difference between the two ratings is 3.</li>
+<li>Classification metrics: Classification metrics assign a label to items. Let us assume that the recommender system has recommended 10 items. Some of them (let’s say 3) are actually liked by the user. Some of them (let’s say 2) are disliked. For the other items (let’s say 5) we have no opinion by the user. Generally speaking, we have four sets to consider: A, B, C, D. <strong>A is the whole dataset. B is the set of items that the user likes. C is the set of items that the user doesn’t like. D is the set of items that we are recommending.</strong></li>
+<li>Advantages and disadvantages: The fact that for some items there is no opinion of the users, is a disadvantage for error metrics. <em>If some of the items belonging to D(recommended items), do not belong to either B(liked items) or C(disliked items), we can’t compute a difference in ratings.</em> Error metrics, in fact, despite being very popular, not always provides a good indicator of the quality of a recommender system. In the field of recommender systems, both methods can be uses: error metrics or classification metrics. Still, the fact that some items are not rated by the users create methodological problems.</li>
+</ol>
+<h1 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h1><h2 id="Recommender-Algorithm"><a href="#Recommender-Algorithm" class="headerlink" title="Recommender Algorithm"></a>Recommender Algorithm</h2><p>A recommender algorithm is a mathematical function. The input is the URM. The output is what we call the “model”, that is, a representation of the user preferences.</p>
+<p>Recommender algorithms above described, are based upon two functions, <strong>F (build a model) and G (use the model)</strong>; they are called model-based algorithms. With memory-based algorithms, instead, there is no model. The algorithm uses past data to provide recommendations. A memory-based recommender system is able to provide recommendations only to users that exist when you build the model. It is not able to provide recommendations to other users. <em>Normally, memory-based algorithms provide better recommendations. But they are slow and therefore do not scale easily</em>.</p>
+<h2 id="Relevant-Data-Sets"><a href="#Relevant-Data-Sets" class="headerlink" title="Relevant Data Sets"></a>Relevant Data Sets</h2><ol>
+<li>The first dataset is the one used to build the model, that is, a guess of the taste for each one of several users. </li>
+<li>The second set is about other users; the model is used to forecast the taste of these users. </li>
+<li>The third dataset is created comparing the estimated ratings with the actual ratings provided by the users</li>
+</ol>
+<h1 id="Evaluation-Techniques"><a href="#Evaluation-Techniques" class="headerlink" title="Evaluation Techniques"></a>Evaluation Techniques</h1><h2 id="Hold-out-techniques"><a href="#Hold-out-techniques" class="headerlink" title="Hold-out techniques"></a>Hold-out techniques</h2><p>Let us consider the URM. The hold-out technique randomly removes some of the ratings from the matrix. The best practice is to remove, more or less, 20% of the ratings. The model is computed (function F) and recommendations are generated (function G). </p>
+<p>Then the estimated ratings are compared with the true ratings that were removed. Though it is very popular, this technique is not an optimal one; one of the disadvantages is that you can evaluate the recommendations only for the users that are both in the training set and in the hold-out set.</p>
+<h2 id="K-fold-evaluation"><a href="#K-fold-evaluation" class="headerlink" title="K-fold evaluation"></a>K-fold evaluation</h2><p>This technique partitions the URM in 3 portions, by selecting different users (and therefore different rows). One portion (obtained by selecting some users) is used to train the model. Two other portions are used to verify the quality of the recommendations. </p>
+<p>It is important to notice that, while hold-out technique randomly removes ratings, k-fold evaluation removes all the ratings of some users. This technique is more difficult to implement: it is also difficult to test the quality of recommendations</p>
+<h2 id="Leave-one-out-technique"><a href="#Leave-one-out-technique" class="headerlink" title="Leave-one-out technique."></a>Leave-one-out technique.</h2><p>When you use hold-out or K-fold, our sparse dataset represents a big problem because, for each user, we have just few ratings, but the average is still very low. </p>
+<blockquote>
+<p>Suppose, using hold-out, you take the user Paolo Cremonesi who rated only four products on Amazon. If we randomly remove only one rating from the user, we have three ratings that we can use to build his model and to understand his taste. So, we evaluate the quality of recommendations to a user, by using only one product and the only way to compare the quality of the recommendation is by comparing the true opinion of Paolo with the estimated opinion. Unfortunately, we can’t trust too much this rating. Now, suppose you remove three ratings from Paolo Cremonesi, using them to analyze the quality of the recommendation. However, there is only one rating that we can use to understand the user’s taste, not an easy way to realize the opinion of a person. So, because the number of ratings per user is normally very low, when you split your dataset you have not enough rating to keep the profile alone and to do a statistical significant quality measurement. </p>
+</blockquote>
+<p>By using leave-one-out, from one user profile you create four profiles by removing one rating, using it for testing. This technique, always used in normal situations, is not only a nice trick to try to solve the problem of having few ratings in the user profile, but probably also the best way to remove ratings. </p>
+<p>Despite that, few people do it for a number of reasons. Firstly, it is difficult and boring to implement. <strong>Furthermore, it takes much more time to do the testing because you need to remove and reset, continuously.</strong> Clearly, if you have a dataset in which your users have a lot of ratings or your users on average have hundreds of ratings, you do not need leave-one-out.</p>
+<h1 id="Error-Metrics"><a href="#Error-Metrics" class="headerlink" title="Error Metrics"></a>Error Metrics</h1><ol>
+<li>Mean Absolute Error: For each rating, the absolute value of the difference between the actual rating and the estimated rating. The overall average is the MAE. </li>
+<li>Root Mean Square Error: The Mean Square Error consists in computing the average of the squared difference between each actual rating and the estimated rating. Often, for normalization, the square root of the result is considered. Minimizing the root mean square error is (relatively) easier than MAE.</li>
+</ol>
+<h2 id="Limitations-of-error-metrics"><a href="#Limitations-of-error-metrics" class="headerlink" title="Limitations of error metrics."></a>Limitations of error metrics.</h2><p>There is an intrinsic problem: <strong>algorithms compute ratings for all items, but users only rate a few items, therefore it is not possible to compare the computed rating with the actual rating by users.</strong> In addition, users normally tend to rate items that they like. Typical distributions of ratings show this phenomenon; there are very few ratings for items that the users do not like.</p>
+<h2 id="Comparing-the-distributions-of-ratings"><a href="#Comparing-the-distributions-of-ratings" class="headerlink" title="Comparing the distributions of ratings"></a>Comparing the distributions of ratings</h2><p><strong>Users, in general, take at items only if they have, at least, a mild interest for them. If we could have all users rating all items, the percentage of negative ratings would be much higher.</strong></p>
+<h2 id="Assumption-of-error-metrics"><a href="#Assumption-of-error-metrics" class="headerlink" title="Assumption of error metrics"></a>Assumption of error metrics</h2><p>In essence the error metrics assumes that ratings are missing at random. This is why the quality measure with error metrics is not a good indicator of the quality of a system. <strong>Because in reality the missing ratings would much more negative than the available ratings.</strong> </p>
+<h1 id="Classification-metrics"><a href="#Classification-metrics" class="headerlink" title="Classification metrics"></a>Classification metrics</h1><h2 id="Recall"><a href="#Recall" class="headerlink" title="Recall"></a>Recall</h2><p>The recall is the ratio between the number of items recommended (say N) and the number of items that the user would actually like (say K). <strong>If recall (N/K) is low, it means there a lot of possibly good items that we are not recommending. If the ratio is high, it means that the system is recommending most of the possibly good items.</strong></p>
+<h2 id="Precision"><a href="#Precision" class="headerlink" title="Precision"></a>Precision</h2><p>Precision. Let us assume that the system recommends N items, and that X of these items are actually good for the user. “Precision” is the ratio between X and N. High precision means that most of the recommended items are good for the user; low precision means that several recommended items should have not been recommended. </p>
+<blockquote>
+<p>Recall and Precision are in general at odds, in the sense that optimizing recall may lead to a low precision, and viceversa. If the system, for example, recommends only the best item, precision is 100% but recall is very low. If the system recommends a lot of items, recall will be very high, but many of the items could be wrong, therefore the precision could be low. </p>
+<p>Balancing Precision and Recall may be difficult, since both of them are important. For recommender system, overall, recall is (slightly) preferred; it is better to not miss any good items, even if the price is that some bad items come along.</p>
+</blockquote>
+<h2 id="Fallout"><a href="#Fallout" class="headerlink" title="Fallout"></a>Fallout</h2><p>Fallout is another important metrics. It is defined as the ratio between the bad items recommended and the total of items with poor rating by that user.</p>
+<h1 id="Combining-metrics"><a href="#Combining-metrics" class="headerlink" title="Combining metrics"></a>Combining metrics</h1><h2 id="Precision-or-recall"><a href="#Precision-or-recall" class="headerlink" title="Precision or recall?"></a>Precision or recall?</h2><p>Recall is the most important metrics for Recommender systems. <em>Despite this, recall, by itself is not sufficient, but it must be combined either with precision or with fallout.</em> When we examine together precision and recall, we must take into account the value of N, that is, the number of items being recommended. </p>
+<blockquote>
+<p>A perfect recommender system has precision of 100% for all the values of recall. In reality however, for a large N we increase recall, since more good items are recommended, but precision decreases, since some of the items are not really relevant for the user. For a small value of N, most of the items recommended are relevant for the user, but some of the possibly relevant items are not recommended.</p>
+</blockquote>
+<h2 id="F-Measure-combining-precision-and-recall"><a href="#F-Measure-combining-precision-and-recall" class="headerlink" title="F-Measure: combining precision and recall."></a>F-Measure: combining precision and recall.</h2><p>F-measure is defined by multiplying “precision”, “recall” and the constant value 2.</p>
+<h2 id="ROC-Curve"><a href="#ROC-Curve" class="headerlink" title="ROC Curve"></a>ROC Curve</h2><p>Plotting together Recall and Fallout, we obtain what is called which is called the ROC curve. Increasing the Value of N, recall increases, but also Fallout increases. If all the items are recommended, both recall and fallout have the maximum possible value. In practice however, recommender systems are interested only in small values of N. </p>
+<p>In addition, measuring Fallout is not always possible; In an “implicit dataset” only the ratings by the user are represented, and the negative ratings are in general missing. </p>
+<p>Fallout can be computed only if the negative ratings are explicitly defined. In order to summarize the ROC curve in a number, the area under the green line is computed. This number is called AUC(the area under the curve). For a perfect recommender system, the value of AUC will be one.</p>
+<h2 id="Popularity-bias"><a href="#Popularity-bias" class="headerlink" title="Popularity bias."></a>Popularity bias.</h2><p>It is easier to collect opinions for items that are very popular and more difficult to collect opinions about items that the people do not care of. This create a problem called “popularity bias”.</p>
+<h2 id="Utility"><a href="#Utility" class="headerlink" title="Utility."></a>Utility.</h2><p>Utility measure the value provided by a recommender algorithm. Recommending the most popular items, it is very likely that the user likes the recommendation; but it is not very useful, since the user is (probably) already aware of those items. </p>
+<p>A useful recommendation combines two facts: the user likes the recommendation and the user gets something new. One possibility is to remove from the test set the most popular items. </p>
+<blockquote>
+<p>In an experiment we removed some of the most popular movies in Netflix: something like 60 movies out of 12,000 movies. As shown by the picture, the quality of the top popular items is the worst. So, generally when you are evaluating a recommender system you should build the test set by taking into account the popularity bias.</p>
+</blockquote>
+<h1 id="Ranking-Metrics"><a href="#Ranking-Metrics" class="headerlink" title="Ranking Metrics"></a>Ranking Metrics</h1><h2 id="Ranking-in-general"><a href="#Ranking-in-general" class="headerlink" title="Ranking in general."></a>Ranking in general.</h2><p>Classification metrics have the goal to determine if a user likes an item or not. Ranking evaluation metrics, instead, try to measure how much a user likes an item, compared to the other items. </p>
+<p>In practice, ranking metrics are used when an order list of recommendations is presented to the users. Generally speaking, when presenting to a user a list of items, it is advisable to put high in the list the items that the user likes most. </p>
+<p>So, in principle, a ranking algorithm, given two items, X and Y, should rank them, putting higher in the list the most liked one. In other words, the list of recommendations will present the most relevant items at the top, and the least relevant items at the bottom.</p>
+<h2 id="Average-Reciprocal-Hit-Rank"><a href="#Average-Reciprocal-Hit-Rank" class="headerlink" title="Average Reciprocal Hit-Rank."></a>Average Reciprocal Hit-Rank.</h2><p>The Average Reciprocal Hit-Rank, ARHR, is a modified version of recall. <em>Recall, is defined as the number of items that the user likes, included in the recommendation, divided by the total number of items that the user likes.</em></p>
+<p>With this technique the denominator is the same. For the numerator each item is “weighted” by a fraction: 1 divided by ranking, that is, the position in the list. The weight is equal to 1 if the item is in position 1; 0.5 if the item is in position 2; and so on. </p>
+<p>This is a useful metrics, but technically speaking is not a ranking in strict sense, since it does not compare the ranking provided by the user with the ranking provided by the system.</p>
+<h2 id="Mean-Average-Precision"><a href="#Mean-Average-Precision" class="headerlink" title="Mean Average Precision."></a>Mean Average Precision.</h2><p>The Mean Average Precision, or MAP, is a very important metric. With MAP we compute the average precision across several different levels of recall. </p>
+<p>Precision and recall are computed for each item added to the list of recommended items.</p>
+<p>In practice the first move is to take the first item: precision is 1 since the user likes the item; recall is 1/100, assuming that there are 100 items that the user likes. Let us consider the second item. Precision is again 1, if the user likes also the second movie. Recall this time is 2/100. </p>
+<p>When K = 2 we can compute DELTA-R, is equal to the difference between the last recall, 2/100 and the previous one, 1/100. In order to compute the MAP for a value of K, we multiply the precision for each value of P(i) for DELTA-R.</p>
+<h2 id="Spearman’s-Rho"><a href="#Spearman’s-Rho" class="headerlink" title="Spearman’s Rho."></a>Spearman’s Rho.</h2><p>Spearman’s Rho coefficient measures the consistency between the ranking as provided by the system and the ranking as provided by the user. It is considered a global ranking metrics, in the sense that all items are considered. Ranking items in a list means that the user puts them in a specific order: the first is the one the she likes most. The Spearman coefficient is 1 if the ranking of the system of exactly corresponds to the ranking provided by the user.</p>
+<h2 id="Kendall’s-Tau"><a href="#Kendall’s-Tau" class="headerlink" title="Kendall’s Tau."></a>Kendall’s Tau.</h2><p>The Kendall’s Tau metric considers pairs of items, not individual ones. Let assume that we have two list of 10 items. There are 45 possible pairs; <strong>for each pair the user ranks it (which of the 2 does she prefer?) and the system ranks it. The pair is Consistent if User and System have the same opinion; it is Discordant otherwise.</strong> </p>
+<p>In addition, we must consider the number of pairs for which the user could not express a preference; and analogously for the system. The Kendall Tau metrics takes into consideration these 4 numbers: consistent pairs; discordant pairs; pairs not ranked by the user; pairs not ranked by the system.</p>
+<blockquote>
+<p>Kendall’s Tau limitations: Kendall’s Tau closely represents the opinion of users, and therefore is a good technique. A major problem is the time required for computing it. </p>
+</blockquote>
+<h1 id="Evaluating-Diversity"><a href="#Evaluating-Diversity" class="headerlink" title="Evaluating Diversity"></a>Evaluating Diversity</h1><h2 id="Defining-diversity"><a href="#Defining-diversity" class="headerlink" title="Defining diversity."></a>Defining diversity.</h2><p>There are several possible definitions for the notion of “diversity”. </p>
+<ol>
+<li>“Intra-list diversity” means that all the items within the same list are quite different. </li>
+<li>“Extra-list diversity”, means, instead, that the items in two different lists are different. This can be useful for two consecutive recommendations. </li>
+</ol>
+<h2 id="Measuring-distance"><a href="#Measuring-distance" class="headerlink" title="Measuring distance"></a>Measuring distance</h2><p>How is it possible to measure the dissimilarity between two items? <em>Let us consider the attributes used to describe an item: for a movie they can be the actors, the genre, the director, etc.</em> For a pair of items, if they have several attributes in common, they are similar; otherwise they are dissimilar. If no attributes are in common, they have the maximum distance.</p>
+<h2 id="Balancing-quality-and-diversity"><a href="#Balancing-quality-and-diversity" class="headerlink" title="Balancing quality and diversity."></a>Balancing quality and diversity.</h2><p>A good recommendation system should balance quality (recommending items that users like) with diversity (recommending dissimilar items). </p>
+<p>Playing “conservative” a recommender system may choose very similar items, improving precision, but probably lowering diversity. As it can be seen on the slide, improving diversity may decrease precision, and viceversa.</p>
+<h1 id="Evaluating-Novelty"><a href="#Evaluating-Novelty" class="headerlink" title="Evaluating Novelty"></a>Evaluating Novelty</h1><h2 id="Defining-novelty"><a href="#Defining-novelty" class="headerlink" title="Defining novelty."></a>Defining novelty.</h2><p>Novelty is another important metrics. The definition of novelty: number of recommended relevant-and-unknown items divided by the number of relevant items. </p>
+<h2 id="Estimating-novelty"><a href="#Estimating-novelty" class="headerlink" title="Estimating novelty."></a>Estimating novelty.</h2><p>Recommending a very popular item, there is the danger that the item is already known by the user. While recommending an item that is not popular, the probability that this recommendation is novel is very large. </p>
+<p>A good approximation of novelty is the following. By popularity we mean the percentage of users who rated an item. The reciprocal popularity of an item is 1 over the popularity. </p>
+<p>A way to improve the novelty, consists in using “diversity”. If the dissimilarity, between the movies recommended and the movies that the user watched in the past, is high, probably the novelty is also high.</p>
+<h1 id="Content-Based-Filtering-1"><a href="#Content-Based-Filtering-1" class="headerlink" title="Content Based Filtering"></a>Content Based Filtering</h1><h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><p>CBF is to estimate how relevant an item is for a user, based on the items for which they have previously expressed a preference.</p>
+<blockquote>
+<p>Basic Logic: If a user expressed a preference for an item, it is likely that he will like similar items.</p>
+</blockquote>
+<h2 id="ICM-Item-Content-Matrix"><a href="#ICM-Item-Content-Matrix" class="headerlink" title="ICM - Item Content Matrix"></a>ICM - Item Content Matrix</h2><p>ICM is the fundamental of CBF. Each row represents an item and each column an attribute. And the value ranging from 0 to 1 in most cases.</p>
+<h1 id="Cosine-Similarity"><a href="#Cosine-Similarity" class="headerlink" title="Cosine Similarity"></a>Cosine Similarity</h1><p>The simplest way to measure the similarity between two items is to count how many attributes they have in common. </p>
+<p>If the item-vector are binary with 1 and 0, we could say that the product of two vectors could be a good measure of the distance between two items.</p>
+<h2 id="The-cosine"><a href="#The-cosine" class="headerlink" title="The cosine"></a>The cosine</h2><p>Counting common attributes is not meaningfult if we are not working with binary values. Cosine similarity is the simplest way to measure the distance, <strong>by taking the dot product of item i and item j and dividing them by the product of the norm of the two items</strong>. </p>
+<blockquote>
+<p>The result measure the angle between two vectors. If the result is close to 1, it means two vectors are quite close (similar).</p>
+</blockquote>
+<h2 id="Shrinking"><a href="#Shrinking" class="headerlink" title="Shrinking"></a>Shrinking</h2><blockquote>
+<p>PROBLEM: there are many cases in which we do not have the attributes or we have few of them. This represents a problem for computing the cosine similarity.</p>
+<p>eg: 两部完全不相同的电影，同一个演员客串了非常小的一部分，且ICM只有一列，就是客串演员，显然两部电影的cosine similarity是1，但是这是与事实相悖的。</p>
+</blockquote>
+<p>A useful trick is to add a constant value (shrink term) in the denominator of the cosine similarity formula.</p>
+<p>By adding a shrink term, we increase the reliability of our similarity. That means, that if we have a similarity close to one, we are sure that there are several attributes in common between the items, therefore we can trust that the items are actually similar.</p>
+<h1 id="Estimating-ratings"><a href="#Estimating-ratings" class="headerlink" title="Estimating ratings"></a>Estimating ratings</h1><blockquote>
+<p>PROBLEM: 当user对于多个（可能有很大差别的）item有一定的preference时，如何进行recommendation。</p>
+</blockquote>
+<p>GOAL: estimate how much user “u”, likes an item “i”, a item. The only information that you have is his opinion about other items “j”.</p>
+<p>The simplest estimator, is the weighted average of the previous ratings, using the similarity between the item “i” and items “j” as the weight.</p>
+<p>new_item_estimated_rating = SUM(previous_item_similarity*previous_item_rating)</p>
+<blockquote>
+<p>EG: <em>You know that Bob likes The Matrix and rated it 5 stars. He also likes ‘Forrest Gump’ and rated it 4 stars. We want to estimate the rating that Bob gives to ‘Star Wars’. We average these rating, giving more weight to ‘The Matrix’ since it shares a similar genre and themes with ‘Star Wars’, and giving very little or no weight to the rating of ‘Forrest Gump’, a very different kind of movie.</em></p>
+</blockquote>
+<h1 id="Similarity-Matrix"><a href="#Similarity-Matrix" class="headerlink" title="Similarity Matrix"></a>Similarity Matrix</h1><p>To build CBF, it is useful to build similarity matrix. Each row are items, and each column are items. The value is the similarity between different items. </p>
+<p><strong>Similarity Matrix</strong> is sparse and really big. The solution of this is take <strong>k-nearest neighbors</strong>. It means instead of keeping all the matrix, for each item(row) we only keep k most similar items.</p>
+<blockquote>
+<p>Choice of k: </p>
+<p>If “k” is too small, we get a very low quality, because you don’t keep enough similarities to compute an appropriate estimation. As you increase k, you have a better quality. </p>
+<p>Then, if you go on increasing “k” too far, the quality start decreasing, because you are polluting the estimation with items that are not relevant to estimate the opinion of the user.</p>
+</blockquote>
+<h1 id="Improving-ICM"><a href="#Improving-ICM" class="headerlink" title="Improving ICM"></a>Improving ICM</h1><p>A standard good quality Content Based Recommender System estimates the rating a user would give to an item, based on cosine similarity improved with the shrink term, and considering the k-nearest neighbors.</p>
+<ol>
+<li>Non-binary values: Sometimes it is more accurate to have values in between zero and one, especially when one attribute only partially describes an item.</li>
+<li>Attribute weights: How do we weigh each attribute? Based on how much important is an attribute in the ICM, the results of recommendation will be different.(eg:<em>what kind of sandwiches provided by the company to the actors during the break time is totally useless for a user to choosing a film!</em>)</li>
+</ol>
+<h1 id="TF-IDF-Term-Frequencies-Inverse-Document-Frequencies"><a href="#TF-IDF-Term-Frequencies-Inverse-Document-Frequencies" class="headerlink" title="TF-IDF: Term Frequencies - Inverse Document Frequencies"></a>TF-IDF: Term Frequencies - Inverse Document Frequencies</h1><p>Very often attribute is a piece of text written by anyone. It seems more a NLP problem, but we still have to solve this.</p>
+<p>One possibility is that the keywords or tags generated by the users in the summary is an attribute. But to weight this attributes, we need to use TF-IDF. (Yes! The TF-IDF Technique used in NLP!)</p>
+<blockquote>
+<p>attribute weight=TF/IDF</p>
+</blockquote>
+<h2 id="Term-Frequency"><a href="#Term-Frequency" class="headerlink" title="Term Frequency"></a>Term Frequency</h2><blockquote>
+<p>KEY IDEA: if a word appears a lot of time in a document, probably this term is important to describe the document. Term frequency is how many times specific term appears in current text.</p>
+</blockquote>
+<h2 id="Inversed-Document-Frequency"><a href="#Inversed-Document-Frequency" class="headerlink" title="Inversed Document Frequency"></a>Inversed Document Frequency</h2><p>IDF is computed as the logarithm, on any base you want, of the ratio between the number of items that are present in the data set divided by the number of items that contain attribute a.</p>
+<blockquote>
+<p>If attribute “a” is present in all items, you have the number of items in the catalog divided by the number of items that contain attribute “a”: the ratio is 1 and its logarithm 0. So, this attribute is weighted zero. </p>
+</blockquote>
+<p>The smaller is the number of items that contain this attribute, IDF is bigger, the more likely is that, if a user like an item with this attribute, he is going to like also other items with this attribute because it means that this attribute is a very peculiar one.</p>
+<h1 id="User-Based-Filtering"><a href="#User-Based-Filtering" class="headerlink" title="User Based Filtering"></a>User Based Filtering</h1><p>An alternative approach to Content Based Filtering based on item similarity is to provide recommendations based on the similarity between the users.</p>
+<blockquote>
+<p>KEY IDEA: if a user likes an item, then similar users are likely to like the same item. The relative <em>user content matrix</em> attributes could be user age, gender, etc.</p>
+</blockquote>
+<p>suppose u the recommended user, and v are some similar users, and i is an item rated by v:</p>
+<p>rating(u,i)= SUM(rating (v,i) * similarity (u,v))/SUM(similarity(u,v))</p>
+<p>We could still apply K-nearest neighbours in this method as well.</p>
+<h1 id="Collaborative-User-Based"><a href="#Collaborative-User-Based" class="headerlink" title="Collaborative User-Based"></a>Collaborative User-Based</h1><blockquote>
+<p>KEY IDEA: compare the proifle of different users to identify similar tastes. We then provide recommendations to a user based on the ratings that similar users have given to an item.</p>
+</blockquote>
+<h2 id="User-Rating-Matrix-URM"><a href="#User-Rating-Matrix-URM" class="headerlink" title="User Rating Matrix - URM"></a>User Rating Matrix - URM</h2><p>The only input data for collaborative filtering is user rating matrix, URM. Differently from CBF, we do not consider the attributes of the items rated, we recommend only based on their ratings. </p>
+<blockquote>
+<p>If we could calculate how similar users tastes are, we could make recommendations just like CBF.  A rating for user “u” on item “i” is estimated as the rating of the k most similar users v times the similarity between “u” and “v”, all divided by the sum of the similarities between “u” and the “v”s.</p>
+</blockquote>
+<h2 id="User-Similarity"><a href="#User-Similarity" class="headerlink" title="User Similarity"></a>User Similarity</h2><p>If two users give similar rating to the same items, we may assume that these two users are similar. <strong>Therefore, we could take two rows from URM an compare their cosine similarity.</strong></p>
+<blockquote>
+<p>PROBLEM: For a explicit rating situation, we have positive users and negative users, they share the same taste while the rating of two group of people are very different. </p>
+</blockquote>
+<h2 id="Pearson-Correlation-Coefficient"><a href="#Pearson-Correlation-Coefficient" class="headerlink" title="Pearson Correlation Coefficient"></a>Pearson Correlation Coefficient</h2><p>To solve above problem, we need to normalize the data by removing the bias before apply collaborative rating. (for each row, remove the average of the non-zero ratings of current row) and then adapt cosine similarity.</p>
+
+
+<blockquote>
+<p>In short, it means that we check whether two users both agree that certain movie is above average. Based on this idea we could build a similarity matrix and then make recommendation.</p>
+</blockquote>
+<h2 id="The-Delta"><a href="#The-Delta" class="headerlink" title="The Delta"></a>The Delta</h2><blockquote>
+<p>PROBLEM: 假设一个positive rating user与一群negative rating user有着相同的taste，那么根据CF我们可以向该user根据那群negative user推荐item I，但是I的rating由于是从negative user中得到的，故评分会比较低，那么这个评分对于该positive user可能会比较低。</p>
+</blockquote>
+<p>Our goal, now, is to estimate the delta between my average rating and the others average ratings. Delta is (the difference between <strong>the rating that I estimate for item i on user u</strong> and <strong>the average rating of user u</strong>). Delta of u is equal to the summation of the delta of user v, times the similarity between v and u, divided by the summation of the similarities. </p>
+<h1 id="Item-Based-Collaborative-Filtering"><a href="#Item-Based-Collaborative-Filtering" class="headerlink" title="Item-Based Collaborative Filtering"></a>Item-Based Collaborative Filtering</h1><h2 id="IBCF"><a href="#IBCF" class="headerlink" title="IBCF"></a>IBCF</h2><p>The item-based collaborative filtering is a symmetric approach to user-based. The only input is URM. We consider two items are similar if a lot of usrers share the same opinions on them. </p>
+<p>In case we only consider implicit ratings, we take two columns from the matrix and measure the cosine of the angle between them. </p>
+<h2 id="IBCF-explicit-ratings"><a href="#IBCF-explicit-ratings" class="headerlink" title="IBCF explicit ratings"></a>IBCF explicit ratings</h2><p>If we still use the cosine of the two vectors, it means we make a computation over u on the rating that user u gave to item i, times the rating that user u gave to item j, divided by the square root of the rating that user u gave to item i squared, times the rating that user u gives to item j squared.</p>
+<h2 id="The-adjusted-cosine"><a href="#The-adjusted-cosine" class="headerlink" title="The adjusted cosine"></a>The adjusted cosine</h2><blockquote>
+<p>Problem 1 of cosine similarity: as an example, <em>take any pair of movies: most of the users will have not rated these movies, so most of the ratings are zero. Now, suppose that there are two movies and I am the only person who rated them, rating both with five: I liked both of them. The cosine between these two movies will be of one, because all users who rated these two movies, which is only me on the rating. So, we are claiming the two movies are identical based only on the opinion of one user. Of course we cannot trust this.</em></p>
+</blockquote>
+<p>We add a shrink term to the denominator of cosine formula to solve this problem. </p>
+<blockquote>
+<p>Poblem 2 of cosine similarity: prositive users vs negative users</p>
+</blockquote>
+<p>We apply the adjusted cosine: summation over the users of the rating that user u gave to item i, minus the average rating of the user, times the summation over u of the rating that user u gave to item j, minus the average rating of the user, divided by the square root of the summation of the ratings that user u gave to item i, minus the average of user ratings squared, times the summation over u, of the ratings that user u gave to item j, minus the average of the ratings of user u squared, plus the shrink.</p>
+
+
+<h1 id="Some-considerations-about-CF"><a href="#Some-considerations-about-CF" class="headerlink" title="Some considerations about CF"></a>Some considerations about CF</h1><h2 id="Normalization"><a href="#Normalization" class="headerlink" title="Normalization"></a>Normalization</h2><p>Normalization is important if your goal is to estimate the rating, but, if the quality metric is an error metric or an accuracy metric, experience is telling us that you can safely remove the normalization without affecting the quality.</p>
+<h2 id="K-nearest-neighbours"><a href="#K-nearest-neighbours" class="headerlink" title="K-nearest neighbours"></a>K-nearest neighbours</h2><p>Save memory and time.</p>
+<h2 id="Choosing-between-user-based-or-item-based-CF"><a href="#Choosing-between-user-based-or-item-based-CF" class="headerlink" title="Choosing between user-based or item-based CF"></a>Choosing between user-based or item-based CF</h2><p>IBCF is better than UBCF. For the following reasons</p>
+<ol>
+<li>It is very difficult to find users similar to a given user. The computation of similarities between users is normally a problem because most of them will be zero. While, on the contrary, if you take two items and you try to see if there are users who rated both items, this probability is a little bit higher.</li>
+<li>UBCF are not robust. If I rate a few new movies, it is very likely that the similarity between me and the other users will change dramatically.</li>
+<li>If you have enough ratings that prove the two items are similar or dissimilar, even if you add more ratings, this similarity will not change much. In an item-based approach you can keep a model like this, without updating it for a lot of time. If you want, you can update the similar matrix once a day or a week or a month. From the practical point of view, it is impossible to create a real commercial recommender system that use a user-based approach on a large catalog of users and items. The performances are too low because you need to update continuously the model. It is time consuming.</li>
+</ol>
+<h1 id="Association-Rules"><a href="#Association-Rules" class="headerlink" title="Association Rules"></a>Association Rules</h1><p>The idea is to explore the data that you have in order trying to estimate the probability that something happens if something else happened in the past.</p>
+<blockquote>
+<p>KEY IDEA: if you like i, there is great possibility that you will like j.</p>
+</blockquote>
+<p>CONFIDENCE/SUPPORT/ASSOCIATION RULES/…</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/POLIMI/" rel="tag"># POLIMI</a>
+              <a href="/tags/Recommender-System/" rel="tag"># Recommender System</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/24/AI-Notes/" rel="prev" title="AI Notes">
+                  <i class="fa fa-chevron-left"></i> AI Notes
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RookieAju's</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

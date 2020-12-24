@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="A short review of cryptography.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cryptography Notes">
+<meta property="og:url" content="http://example.com/2020/12/24/Cryptography-Notes/index.html">
+<meta property="og:site_name" content="RookieAju&#39;s workshop">
+<meta property="og:description" content="A short review of cryptography.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-24T13:44:20.000Z">
+<meta property="article:modified_time" content="2020-12-24T13:47:56.562Z">
+<meta property="article:author" content="RookieAju&#39;s">
+<meta property="article:tag" content="POLIMI">
+<meta property="article:tag" content="Cryptography">
+<meta property="article:tag" content="Computer Security">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/12/24/Cryptography-Notes/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>Cryptography Notes | RookieAju's workshop</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">RookieAju's workshop</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Each question deserves an answer</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Feb-26-Introduction-to-Cryptography"><span class="nav-number">1.</span> <span class="nav-text">Feb 26 Introduction to Cryptography</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Instructor-Information"><span class="nav-number">1.1.</span> <span class="nav-text">Instructor Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-to-cryptography"><span class="nav-number">1.2.</span> <span class="nav-text">Introduction to cryptography</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modern-Cryptography"><span class="nav-number">1.3.</span> <span class="nav-text">Modern Cryptography</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Models"><span class="nav-number">1.4.</span> <span class="nav-text">Security Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Security-Properties"><span class="nav-number">1.5.</span> <span class="nav-text">Security Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Terminology-and-Concepts"><span class="nav-number">1.6.</span> <span class="nav-text">Basic Terminology and Concepts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cryptographic-Paradigms"><span class="nav-number">1.7.</span> <span class="nav-text">Cryptographic Paradigms</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attacks-on-Cryptoscheme"><span class="nav-number">1.8.</span> <span class="nav-text">Attacks on Cryptoscheme</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mar-1-Historical-Ciphers"><span class="nav-number">2.</span> <span class="nav-text">Mar 1 Historical Ciphers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Substitution-Ciphers"><span class="nav-number">2.1.</span> <span class="nav-text">Substitution Ciphers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Permutation-Ciphers-Transposition-Cipher"><span class="nav-number">2.2.</span> <span class="nav-text">Permutation Ciphers&#x2F;Transposition Cipher</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Affine-Ciphers"><span class="nav-number">2.3.</span> <span class="nav-text">Affine Ciphers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Perfect-Secrecy"><span class="nav-number">2.4.</span> <span class="nav-text">Perfect Secrecy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Theorem-C-Shannon"><span class="nav-number">2.5.</span> <span class="nav-text">Theorem (C. Shannon)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vernam-Cipher-One-Time-Pad-OTP-%E4%B8%80%E6%AC%A1%E6%80%A7%E5%AF%86%E7%A0%81%E6%9C%AC"><span class="nav-number">2.6.</span> <span class="nav-text">Vernam Cipher&#x2F;One-Time-Pad (OTP)[一次性密码本]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Computationally-secure-ciphers"><span class="nav-number">2.7.</span> <span class="nav-text">Computationally secure ciphers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Entropy"><span class="nav-number">2.8.</span> <span class="nav-text">Entropy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mar-5-Block-Ciphers-amp-Modes-of-Operation"><span class="nav-number">3.</span> <span class="nav-text">Mar 5 Block Ciphers &amp; Modes of Operation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-of-Symmetric-key-Ciphers-Confusion-amp-Diffusion"><span class="nav-number">3.1.</span> <span class="nav-text">Design of Symmetric-key Ciphers: Confusion &amp; Diffusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-Ciphers"><span class="nav-number">3.2.</span> <span class="nav-text">Block Ciphers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Terminologies"><span class="nav-number">3.3.</span> <span class="nav-text">Basic Terminologies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modern-Block-Ciphers"><span class="nav-number">3.4.</span> <span class="nav-text">Modern Block Ciphers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modes-of-Operation"><span class="nav-number">3.5.</span> <span class="nav-text">Modes of Operation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CBC"><span class="nav-number">3.6.</span> <span class="nav-text">CBC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream-Based-Models"><span class="nav-number">3.7.</span> <span class="nav-text">Stream Based Models</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mar-12-SPN-amp-AES"><span class="nav-number">4.</span> <span class="nav-text">Mar 12 SPN &amp; AES</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SPN"><span class="nav-number">4.1.</span> <span class="nav-text">SPN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AES"><span class="nav-number">4.2.</span> <span class="nav-text">AES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Steam-Ciphers"><span class="nav-number">4.3.</span> <span class="nav-text">Steam Ciphers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LFSR-Linear-Feedback-Shift-Registers"><span class="nav-number">4.4.</span> <span class="nav-text">LFSR&#x2F;Linear Feedback Shift Registers</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mar-15-Hybrid-Cryptosystems"><span class="nav-number">5.</span> <span class="nav-text">Mar 15 Hybrid Cryptosystems</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hybrid-cryptosystems"><span class="nav-number">5.1.</span> <span class="nav-text">Hybrid cryptosystems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cryptographic-Hash"><span class="nav-number">5.2.</span> <span class="nav-text">Cryptographic Hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Public-Key-Authentication-%E8%AF%81%E6%98%8E%E5%85%AC%E9%92%A5%E5%8C%99%E6%98%AF%E8%B0%81%E7%9A%84"><span class="nav-number">5.3.</span> <span class="nav-text">Public Key Authentication[证明公钥匙是谁的]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Digital-Certificate"><span class="nav-number">5.4.</span> <span class="nav-text">Digital Certificate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Who-Signs-The-Certificate"><span class="nav-number">5.5.</span> <span class="nav-text">Who Signs The Certificate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mail-Protocol-PGP-GPG"><span class="nav-number">5.6.</span> <span class="nav-text">Mail Protocol PGP&#x2F;GPG</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Useful-Links"><span class="nav-number">6.</span> <span class="nav-text">Useful Links</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Mar-19-Block-Cipher-Cryptanalyses-Linear-Cryptanalysis"><span class="nav-number">7.</span> <span class="nav-text">Mar 19 Block Cipher Cryptanalyses: Linear Cryptanalysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Block-Cipher-Cryptanalysis"><span class="nav-number">8.</span> <span class="nav-text">Block Cipher Cryptanalysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Algebraic-Analysis"><span class="nav-number">9.</span> <span class="nav-text">Algebraic Analysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Statistical-Analysis"><span class="nav-number">10.</span> <span class="nav-text">Statistical Analysis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-%E2%80%9CTRIVIAL%E2%80%9D-Cipher"><span class="nav-number">11.</span> <span class="nav-text">The “TRIVIAL” Cipher</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#S-Boxes"><span class="nav-number">12.</span> <span class="nav-text">S-Boxes</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">RookieAju's</p>
+  <div class="site-description" itemprop="description">NLP, PS4, Cyberpunk2077, Shenzhen, DeepLearning, Tongji</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/24/Cryptography-Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="RookieAju's">
+      <meta itemprop="description" content="NLP, PS4, Cyberpunk2077, Shenzhen, DeepLearning, Tongji">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RookieAju's workshop">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cryptography Notes
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-24 21:44:20 / Modified: 21:47:56" itemprop="dateCreated datePublished" datetime="2020-12-24T21:44:20+08:00">2020-12-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>A short review of cryptography.</p>
+<a id="more"></a>
+
+<h1 id="Feb-26-Introduction-to-Cryptography"><a href="#Feb-26-Introduction-to-Cryptography" class="headerlink" title="Feb 26 Introduction to Cryptography"></a>Feb 26 Introduction to Cryptography</h1><h2 id="Instructor-Information"><a href="#Instructor-Information" class="headerlink" title="Instructor Information"></a>Instructor Information</h2><p><a href="mailto:&#103;&#x65;&#x72;&#x61;&#114;&#100;&#111;&#x2e;&#x70;&#x65;&#x6c;&#x6f;&#x73;&#x69;&#x40;&#x70;&#111;&#x6c;&#x69;&#x6d;&#x69;&#x2e;&#105;&#116;">&#103;&#x65;&#x72;&#x61;&#114;&#100;&#111;&#x2e;&#x70;&#x65;&#x6c;&#x6f;&#x73;&#x69;&#x40;&#x70;&#111;&#x6c;&#x69;&#x6d;&#x69;&#x2e;&#105;&#116;</a></p>
+<p><a href="mailto:&#x61;&#108;&#101;&#x73;&#x73;&#97;&#110;&#x64;&#x72;&#x6f;&#46;&#98;&#x61;&#114;&#x65;&#x6e;&#103;&#x68;&#105;&#64;&#x70;&#111;&#108;&#x69;&#x6d;&#105;&#x2e;&#105;&#x74;">&#x61;&#108;&#101;&#x73;&#x73;&#97;&#110;&#x64;&#x72;&#x6f;&#46;&#98;&#x61;&#114;&#x65;&#x6e;&#103;&#x68;&#105;&#64;&#x70;&#111;&#108;&#x69;&#x6d;&#105;&#x2e;&#105;&#x74;</a></p>
+<h2 id="Introduction-to-cryptography"><a href="#Introduction-to-cryptography" class="headerlink" title="Introduction to cryptography"></a>Introduction to cryptography</h2><p><strong>cryptography</strong>: how to design and implement cryptographic algorithms</p>
+<p><strong>cryptanalysis</strong>: how to break a cipher (recover key/message), analyzing weak mathematical assumptions or advancements, bad implementations</p>
+<h2 id="Modern-Cryptography"><a href="#Modern-Cryptography" class="headerlink" title="Modern Cryptography"></a>Modern Cryptography</h2><p><strong>Kerckhoff’s Principle</strong> A cryptosystem should be secure even if everything about the system is publicly known, except a single parameter (a.k.a., the cryptographic key)</p>
+<h2 id="Security-Models"><a href="#Security-Models" class="headerlink" title="Security Models"></a>Security Models</h2><p><strong>Unconditional Security (Perfect Secrecy)</strong>: assumes an adversary with unlimited computing power and proves that she does not have enough information to infer either the cryptographic key or the original message </p>
+<p><strong>Computational Security</strong>: assumes that any adversary is computationally limited (. . .as all adversaries are in practice). It gives a lower-bound on the computational complexity of the best methods available to break the cipher</p>
+<h2 id="Security-Properties"><a href="#Security-Properties" class="headerlink" title="Security Properties"></a>Security Properties</h2><ol>
+<li><p>Confidentiality[保密性]</p>
+<p> Confidentiality provides encrypted information, thus making it unreadable to anyone except for the intended receivers, who are able to reverse the encryption</p>
+</li>
+<li><p>Authenticity[真实性]</p>
+<p> Authenticity indicate that systems use to identify their users. It answers the questions of <em>Who is the user/counterpart?</em> and <em>is the user/counterpart really who she claims herself to be?</em></p>
+<blockquote>
+<p>When a system includes a communication protocol:</p>
+<ul>
+<li><p>The parties may need to identify themselves (<strong>entity authentication</strong>)</p>
+</li>
+<li><p>The parties want to make sure that data is really exchanged between the intended endpoints (i.e., No-one in middle is masquerading as one of them) (<strong>data origin authentication</strong>)</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Data integrity[完整性]</p>
+<p> Data integrity guarantees that data has not been tampered with.(Insertion/Replacement/Deletion)</p>
+<blockquote>
+<p>Data Authentication (data origin authentication + data integrity)</p>
+<ul>
+<li><p>data origin authentication (the fact that you know who the sender is)</p>
+</li>
+<li><p>data integrity (the fact that data has not been modified)</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Non-repudiation[不可否认性]</p>
+<p> Non-repudiation prevents an entity from denying previous commitments or actions later on.</p>
+</li>
+</ol>
+<h2 id="Basic-Terminology-and-Concepts"><a href="#Basic-Terminology-and-Concepts" class="headerlink" title="Basic Terminology and Concepts"></a>Basic Terminology and Concepts</h2><ol>
+<li><p><strong>Alphabet A</strong>: a finite set of symbols</p>
+<p> The binary alphabet, A={0, 1}, is the most common choice as any other alphabet can be encoded over it</p>
+</li>
+<li><p><strong>Message Space M</strong>: consists of set of strings over an alphabet</p>
+</li>
+<li><p><strong>Plain Text</strong>: an element of M</p>
+</li>
+<li><p><strong>Ciphertext Space C</strong>: consists of a set of strings over an alphabet (which may differ from the alphabet for M).</p>
+</li>
+<li><p><strong>iphertext</strong>: an element of C </p>
+</li>
+<li><p><strong>KeySpace K</strong>: a set of elements called keys.(a set of keys)</p>
+</li>
+<li><p><strong>Encryption Transformation</strong>: Given an element e∈K, the encryption transformation E<sub>e</sub> : M→C, uniquely determines a bijective map from M to C.</p>
+</li>
+<li><p><strong>Decryption transformation</strong>: Given an element d∈K, the decryption transformation E<sub>d</sub> : C→M, uniquely determines a bijective map from C to M.</p>
+</li>
+<li><p><strong>Cryptoscheme</strong>: &lt;A, M, C, K, {E<sub>e</sub> : e ∈ K}, {D<sub>d</sub> : d ∈ K}&gt;</p>
+</li>
+</ol>
+<h2 id="Cryptographic-Paradigms"><a href="#Cryptographic-Paradigms" class="headerlink" title="Cryptographic Paradigms"></a>Cryptographic Paradigms</h2><ol>
+<li><p>Symmetric (or Secret-Key) Cryptosystem</p>
+<p> Every user is bound to a single secret key, with fixed length, i.e. encryption E<sub>e</sub> and decryption D<sub>d</sub> algorithms use the same key: e = d</p>
+<blockquote>
+<p>There are two main strategies for defining E and D, which lead to</p>
+<ul>
+<li><p>Block ciphers: act on a fixed length plain/ciphertext (e.g., AES, 3DES2, CAST5, Camellia, Gost, BlowFish)</p>
+</li>
+<li><p>Stream ciphers: act on an arbitrary length plain/ciphertext (e.g., RC4, Trivium, A5/1, A5/2, A5/3)</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Asymmetric (or Public-Key) Cryptosystem</p>
+<p> Every user is bound to a key pair:</p>
+<ul>
+<li><p>Public Key e ∈ K: is employed to encrypt plaintexts (E<sub>e</sub> (m), m ∈ M). Can be known to everybody</p>
+</li>
+<li><p>Private Key d ∈ K: is employed to decrypt ciphertexts (D<sub>d</sub> (c), c ∈ D). Must be known to the recipient only (and rigorously kept secret from everybody else)</p>
+<blockquote>
+<p>The public key needs authentication to avoid identity theft. Which guarantee do we have that the public key is really bound to the intended user?</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Digital Signatures and Certification Authorities (CAs)</p>
+<p> To provide the Non-Repudiation service we need: Digital Signatures and Certification Authorities (CAs)</p>
+<ul>
+<li><p><strong>Digital Signature</strong></p>
+<p>  A tool to authenticate the public key. It allows to verify the unambiguous association of a user to her public-key</p>
+<ul>
+<li><p>A digital signature can be obtained applying the decryption transformation(using his/her private key d) to the message m, which should be authenticated: s = D<sub>d</sub> (m)</p>
+</li>
+<li><p>Everyone can check the validity of the signed message &lt;m,s&gt; (by the public key e) through checking whether E<sub>e</sub> (s) = m or not, as e is a publicly known value</p>
+<blockquote>
+<p>非对称加密的原理就好像有一把锁，每个人都可以用一把钥匙（公钥e）锁上，但是要想开这把锁，必须用一把特殊的钥匙（私钥d）开锁，而数字签名的原理刚好相反，一个用户需要向所有的用户展示自己的身份，最好的办法就是他举起他的钥匙大喊，“看！这唯一的一把私钥在我手上”。而在计算机科学的领域，他的做法就是将一条消息解密（这是只有拥有私钥的人才能办得到的事情！）然后向每个人公布解密后的消息，每个人都可以拿到他解密后的消息s和原来的消息m，通过公钥加密s后可以得到m，就证明了这个私钥用户的身份。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>Certification Authority (CA)</strong></p>
+<p>  An independent third party (that all users trust) certifies the binding of a public-key to the identity of the corresponding user。</p>
+<p>  The CA digitally signs a document (<strong>Digital Certificate</strong>) saving in public repositories, containing</p>
+<ul>
+<li><p>The identity of the user</p>
+</li>
+<li><p>The public-key of the user</p>
+</li>
+<li><p>Metadata (e.g., expiration date, CA name, etc…)</p>
+<p>The assumption is that everybody knows the public keys of the CAs, thus every certificate can be checked through verifying a CA signature</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Identity Based Cryptosystem</strong></p>
+<p>  A Public-Key system where the User Identity is employed to uniquely derive the public key.</p>
+<ul>
+<li><p>Identity: any previously recognized and publicly known piece of information bound to a specified user (e.g., a SSN, an email address, passport No., driving licence No., position in a company)</p>
+</li>
+<li><p>Public Key: is uniquely derived from the Identity chosen by the user. May be known to everybody</p>
+</li>
+<li><p>Private Key: is released to each user by a Trusted Authority (TA) who combines the user Identity and a master secret parameter to compute it</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="Attacks-on-Cryptoscheme"><a href="#Attacks-on-Cryptoscheme" class="headerlink" title="Attacks on Cryptoscheme"></a>Attacks on Cryptoscheme</h2><p><strong>Basic assumptions: Kerckhoff’s principle</strong></p>
+<p>The alphabet A, the structure of the plaintexts (i.e., the form of M) and the details of the encryption/decryption algorithms are known</p>
+<p><strong>Brute force attack (Exhaustive key search)</strong></p>
+<p>Given a ciphertext, it checks <strong>all possible keys</strong> until the correct one is found. The attacker must be able to distinguish the correct plaintext from a valid but incorrect one</p>
+<p><strong>Categrories</strong></p>
+<ul>
+<li><p>Ciphertext-only attack (COA)</p>
+<p>  The attacker knows the ciphertext of a number of messages encrypted with same key (he doesn’t known any plaintext)</p>
+</li>
+<li><p>Known-plaintext attack (KPA)</p>
+<p>  The attacker knowns plain-ciphertext pairs, encrypted with same key</p>
+</li>
+<li><p>Chosen-plaintext attack (CPA)</p>
+<p>  The attacker chooses a number of plaintexts to be encrypted (all with the same unknown key) and obtains the corresponding ciphertexts</p>
+</li>
+</ul>
+<h1 id="Mar-1-Historical-Ciphers"><a href="#Mar-1-Historical-Ciphers" class="headerlink" title="Mar 1 Historical Ciphers"></a>Mar 1 Historical Ciphers</h1><h2 id="Substitution-Ciphers"><a href="#Substitution-Ciphers" class="headerlink" title="Substitution Ciphers"></a>Substitution Ciphers</h2><ul>
+<li><p>Monoalphabetic Substitution Cipher(eg: Shift Cipher, The Gold Bug Cryptogram):</p>
+<p>  There is a 1-to-1 correspondence between plaintext (ptx) and ciphertext (ctx) letters (also digrams, trigrams, etc). Thus, assuming the Kerchoff’s principle holds, a Ciphertext-Only attack (COA) easily reveals the key(Based on the statistic of frequency of each letter).</p>
+<blockquote>
+<p>The statistics of the plaintext language (frequency distribution of the symbols of Am in M) is known</p>
+<p>The statistics of the ciphertext space, i.e., the frequency distribution of the symbols of Ac in C, can be computed over the available ciphertexts.</p>
+<p>The substitution map (i.e., the key) can be inferred easily by matching the symbols occurring with similar frequencies</p>
+</blockquote>
+<blockquote>
+<p>Most common letters: E,A,T,O,N,I…</p>
+<p>Most common bigrams: TH,HE,IN,ER…</p>
+<p>Most common trigrams:THE,ING,AND…</p>
+</blockquote>
+</li>
+<li><p>Polyalphabetic Cipher(eg: Vigenere Cipher):</p>
+<p>  The plaintext and ciphertext spaces include finite sequence of letters (words) from the alphabets A<sub>m</sub> and A<sub>c</sub> , respectively.</p>
+<p>  The encryption transformation is defined as the application of “L &gt; 1 bijective maps”(L is the length of the key, may be reused and reused) between the two alphabets: µ0, µ1,… here each µ means a mapping from A<sub>m</sub> to A<sub>c</sub>.</p>
+<blockquote>
+<p>here it means that one µ is a crypto-system that mapping A to C, B to D … so the keyspace is (|A<sub>m</sub>|!)^L</p>
+</blockquote>
+<p>  The key k = (µ0, µ1, . . . , µL−1) is constituted by the L maps employed to encrypt the ciphertext</p>
+<ul>
+<li><p>Vigenere Cipher</p>
+<p>  If the plain text is <strong>ATTACKATDAWN</strong></p>
+<p>  Choose the key as LEMON and get the length same with plain text <strong>LEMONLEMONLE</strong></p>
+<p>  Here each letter in the key noted as a sequence, for example, </p>
+<p>  K1 = L, and the M1 is A, so the C1 is L(the 1st one noted by L).</p>
+<p>  K2 = E, and the M2 is T, so the C2 is X(the 20st one noted by E).</p>
+<p>  … …</p>
+<p>  And get the final cipher text LXFOPVEFRNHR</p>
+<blockquote>
+<p>The cipher is still easy to break with a Ciphertext Only Attack using Kasisky Test</p>
+<p>It bases on the fact that two identical segments of 2 ≤ l ≤ L plaintext letters (l-gram), will be encrypted to the same sequence of l ciphertext letters (when properly aligned with the keyword)</p>
+<p>Deduction: The distance d between two repeated sequences of l chars in the ciphertext may suggest a multiple of the key length L (find the GCD)</p>
+</blockquote>
+</li>
+<li><p>Beale’s Cipher/Book Cipher</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Permutation-Ciphers-Transposition-Cipher"><a href="#Permutation-Ciphers-Transposition-Cipher" class="headerlink" title="Permutation Ciphers/Transposition Cipher"></a>Permutation Ciphers/Transposition Cipher</h2><p>The encryption transformation of this cipher consists of a permutation of the positions of the plaintext letters</p>
+<blockquote>
+<p>a permutation cipher is not equivalent to a substitution map as each plaintext letter may corresponds to multiple ciphertext letters depending on the position</p>
+<p>COA may not effective, but KPA/CPA still work</p>
+</blockquote>
+<h2 id="Affine-Ciphers"><a href="#Affine-Ciphers" class="headerlink" title="Affine Ciphers"></a>Affine Ciphers</h2><ul>
+<li>The Hill Cipher</li>
+</ul>
+<h2 id="Perfect-Secrecy"><a href="#Perfect-Secrecy" class="headerlink" title="Perfect Secrecy"></a>Perfect Secrecy</h2><p>A perfectly secret cipher should be unbreakable regardless of the (computational) effort thrown at it This implies that the ciphertext alone provides no information (no clue) to an attacker</p>
+<p>A perfectly secure cipher is proven to be resistant to COAs, KPAs, and CCA(2)s.</p>
+<blockquote>
+<p>Definition</p>
+<p>A symmetric-key cryptosystem is Perfectly Secure if the ciphertext does not reveal any information about the plaintext</p>
+<p>Pr(P = m|C = c) = Pr(P = m), ∀m ∈ M, c ∈ C</p>
+<p>LEMMA1: Pr(C = c|P = m) = Pr(C = c), ∀m ∈ M, c ∈ C</p>
+<p>LEMMA2: Given a Perfectly Secure symmetric key cryptosystem, the followingconditions hold |K| ≥ |C| ≥ |M|</p>
+</blockquote>
+<h2 id="Theorem-C-Shannon"><a href="#Theorem-C-Shannon" class="headerlink" title="Theorem (C. Shannon)"></a>Theorem (C. Shannon)</h2><p>Let &lt;A, M, K, C, {E<sub>k</sub> (), k ∈ K}, {D<sub>k</sub> (), k ∈ K}&gt; denote a symmetric key cryptosystem where the keys are picked independently of plaintexts values and |K| = |C| = |M|, The cryptosystem is perfectly secure iff </p>
+<p>(i) every key is used with probability 1/|K| </p>
+<p>(ii) ∀ (m, c)∈M×C there is a unique key k∈K s.t. E<sub>k</sub> (m)=c</p>
+<h2 id="Vernam-Cipher-One-Time-Pad-OTP-一次性密码本"><a href="#Vernam-Cipher-One-Time-Pad-OTP-一次性密码本" class="headerlink" title="Vernam Cipher/One-Time-Pad (OTP)[一次性密码本]"></a>Vernam Cipher/One-Time-Pad (OTP)[一次性密码本]</h2><ul>
+<li><p>Modified Shift Cipher</p>
+<p>  To encrypt plain text [This is an example]</p>
+<p>  Using the OTP of [MASKL NSFLD FKJPQ]</p>
+<p>  First transform two strings into numbers</p>
+<p>  This is an example → 19 7 8 18 8 18 0 13 4 23 0 12 15 11 4</p>
+<p>  MASKL NSFLD FKJPQ → 12 0 18 10 11 13 18 5 11 3 5 10 9 15 16</p>
+<p>  Sum them up and get</p>
+<p>  31 7 26 28 19 31 18 18 15 26 5 22 24 26 20</p>
+<p>  Mod 26 get</p>
+<p>  5 7 0 2 19 5 18 18 11 0 5 22 24 0 20</p>
+<p>  Transform back to English and get</p>
+<p>  FHACTFSSLAFWYAU</p>
+<blockquote>
+<p>The aformentioned OTP system employed with binary keys and messages is the most effective implementation of a perfectly secure cryptoscheme</p>
+</blockquote>
+<blockquote>
+<p>This system is perfectly secure (M=C=K={0, . . . , 25}^5; ptxs and keys are independent):</p>
+<p>each key is chosen with uniform probability ⇒ Pr(K = k) = 1/26^5</p>
+<p>for each ptx-ctx pair &lt;m, c&gt; there is a unique key: k<sub>i</sub>=(c<sub>i</sub>−m<sub>i</sub>) mod 26, ∀ i</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Computationally-secure-ciphers"><a href="#Computationally-secure-ciphers" class="headerlink" title="Computationally secure ciphers"></a>Computationally secure ciphers</h2><h2 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h2><p>Definition</p>
+<p>Let X be a random variable (generally means an alphabet) which takes values in {x1, x2, . . . xn} with probability distribution p<sub>i</sub>=Pr(X = x<sub>i</sub>), ∀ 1≤i≤n. The Entropy of X is defined as:</p>
+<p>H(X) = −Sigma(i from 1 to n) p<sub>i</sub>log<sub>2</sub>p<sub>i</sub></p>
+<p>assuming conventionally that p<sub>i</sub>log<sub>2</sub>p<sub>i</sub>=0, if p<sub>i</sub>=0.</p>
+<blockquote>
+<p>H(X, Y )≤H(X)+H(Y ), the equality holds if X, Y are independent</p>
+<p>H(X, Y )=H(Y )+H(X|Y );</p>
+<p>H(X|Y )≤H(X), the equality holds if X, Y are independent</p>
+<p>H(P|K, C)=0: if you know the ctx and the key you do not have any uncertainty in deriving the ptx</p>
+<p>H(C|P,K)=0: if you know the ptx and the key you do not have any uncertainty in deriving the ctx</p>
+<p>H(C, P,K)=H(P,K)+H(C|P,K)=H(P,K)=H(P)+H(K)</p>
+<p>H(C, P,K)=H(K, C)+H(P|K, C)=H(K, C)</p>
+</blockquote>
+<ul>
+<li><p>Key Equivocation</p>
+<p>  It defines the amount of information (uncertainty) about the key, that you got by the knowledge of a ctx: H(K|C)</p>
+<p>  H(K|C) = H(K, C) − H(C) = H(P) + H(K) − H(C)</p>
+</li>
+<li><p>Definition of Language Redundancy</p>
+<p>  R<sub>L</sub> = 1 − H<sub>L</sub>/log<sub>2</sub>|M|</p>
+</li>
+<li><p>Unicity Distance</p>
+<p>  It is the length of ciphertext words (i.e., the number of ctx) n=n0 such that the number of spurious keys is equal to zero,</p>
+<p>  n0 ≈ log<sub>2</sub>|K|/(R<sub>L</sub>log<sub>2</sub>|M|)</p>
+</li>
+</ul>
+<h1 id="Mar-5-Block-Ciphers-amp-Modes-of-Operation"><a href="#Mar-5-Block-Ciphers-amp-Modes-of-Operation" class="headerlink" title="Mar 5 Block Ciphers &amp; Modes of Operation"></a>Mar 5 Block Ciphers &amp; Modes of Operation</h1><h2 id="Design-of-Symmetric-key-Ciphers-Confusion-amp-Diffusion"><a href="#Design-of-Symmetric-key-Ciphers-Confusion-amp-Diffusion" class="headerlink" title="Design of Symmetric-key Ciphers: Confusion &amp; Diffusion"></a>Design of Symmetric-key Ciphers: Confusion &amp; Diffusion</h2><ul>
+<li><p>Confusion<br>  make the relation between the key, plaintext and ciphertext as complex as possible. Ideally, each digit of the key influences the correspondence between pxt and cxt letters in a non-predictable way</p>
+<blockquote>
+<p>Ciphers that do not offer effective confusion are vulnerable to frequency analysis</p>
+</blockquote>
+</li>
+<li><p>Diffusion<br>  Refers to the property that the statistical distribution of “groups of pxt letters” frequencies (due to the redundancy of the ptx language) should be dissipated, as much as possible, into flat distribution statistics, i.e. the ctx should appear as random data.</p>
+<blockquote>
+<p>Diffusion spreads (diffuse) the influence of a single plaintext letter over many (or every) cxt letters</p>
+</blockquote>
+<blockquote>
+<p>Ciphers suffering from poor diffusion can usually be broken by means of Known Plaintext Attacks (e.g., simple permutation ciphers) </p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Block-Ciphers"><a href="#Block-Ciphers" class="headerlink" title="Block Ciphers"></a>Block Ciphers</h2><p>Block ciphers operate on a block of plaintext m∈M (m = &lt;m1, . . . , mn&gt;, with m<sub>i</sub>∈{0, 1}), to produce a block of ciphertext (c = &lt;c1, . . . , cn&gt; ∈ C, with c<sub>i</sub>∈{0, 1}) through a key-parametric transformation (either E<sub>k</sub> () or D<sub>k</sub> ())</p>
+<blockquote>
+<p>The block size n is in the [64, 256] bit range</p>
+<p>ptx size might not be multiple a of block size → PADDING</p>
+<p>For ptxs longer than a single block, the scheme used to apply E<sub>k</sub> () (or D<sub>k</sub> ()) is called mode of operation</p>
+</blockquote>
+<h2 id="Basic-Terminologies"><a href="#Basic-Terminologies" class="headerlink" title="Basic Terminologies"></a>Basic Terminologies</h2><p><strong>Cipher State</strong>: The result of each operation performed by the cipher (Initialized with the ptx; contains the ctx at the end of the computation)</p>
+<p><strong>Round</strong>: basic sequence of operations applied to the cipher state, a number of times (involves blending the key into the state)</p>
+<p><strong>Key Schedule</strong>: procedure expanding the original user key into key material to be used in each round</p>
+<h2 id="Modern-Block-Ciphers"><a href="#Modern-Block-Ciphers" class="headerlink" title="Modern Block Ciphers"></a>Modern Block Ciphers</h2><ul>
+<li><p>Feistel Networks</p>
+<p>  Invented by Horst Feistel (in ’50-’60), it splits the cipher state in two parts and acts on one of them per round</p>
+<p>  A Feistel network transforms an n-bit ptx block m=&lt;L0, R0&gt;, into an n-bit ctx block c=&lt;Rr, Lr&gt; through an r-round process (r≥1); where the sub-blocks Li , Ri are n/2-bit long.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Feistel(&lt;L, R&gt;, k)</span><br><span class="line">    1 for i ← 0 to r − 1</span><br><span class="line">    2   temp ← L</span><br><span class="line">    3   L ← R</span><br><span class="line">    4   R ← temp ⊕ F(ki, R) &#x2F;&#x2F; Li &#x3D; Ri−1, Ri &#x3D; Li−1 ⊕ F(ki, Ri−1)</span><br><span class="line">    5 R ← R ⊕ F(kr, L)</span><br><span class="line">    6 return &lt;R, L&gt; &#x2F;&#x2F; Note: the last round block halves are swapped</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Properties</p>
+<p>L<sub>i</sub> = R<sub>i-1</sub>, R<sub>i</sub> = L<sub>i-1</sub> ⊕ F(k<sub>i</sub> , R<sub>i-1</sub>)</p>
+<p>R<sub>i-1</sub> = L<sub>i</sub> , L<sub>i-1</sub> = R<sub>i</sub> ⊕ F(k<sub>i</sub>, L<sub>i</sub>)</p>
+</blockquote>
+  
+
+<blockquote>
+<p>Ciphers based on a Feistel Network</p>
+<p>DES, Blowfish, Twofish, CAST5</p>
+</blockquote>
+</li>
+<li><p>DES</p>
+<p>  16-round Feistel cryptosystem with 64-bit wide cipher state</p>
+  
+
+<p>  <strong>DES round</strong>: F(ki, Ri−1) = P-box(S-box(ki ⊕ E-box(Ri−1))</p>
+<ol>
+<li><p>E-box(Ri−1) expands Ri−1 from 32 (4 * 8) into 48 (6 * 8) bits </p>
+</li>
+<li><p>Adds (XOR) the 48-bit round key ki </p>
+</li>
+<li><p>Map the 48-bit word into a 32-bit one via applying 8 fixed S-boxes. Each S-box map a 6 bit word to a 4 bit one</p>
+</li>
+<li><p>Apply a fixed bitwise permutation specified by the P-box</p>
+</li>
+</ol>
+<p>  <strong>Weak Keys</strong>: Encrypting a ptx twice with a weak key k, yields the original ptx. DES(k, DES(k, m)) = m, ∀ m ∈ M</p>
+<p>  <strong>Semi-Weak Keys</strong>: Also a Semi-Weak key pair &lt;k, k0&gt; causes the composition of two DES encryptions employing k and k0 to compute the original ptx DES(k, DES(k 0, m)) = m, ∀ m ∈ M</p>
+<p>  <strong>Not Closed</strong>: ∀m not exists k3 s.t. DES(k3, m) = DES(k2, DES(k1, m))</p>
+<blockquote>
+<p>The composition of two DES with distinct keys is still a permutation Sn, but in general it cannot be thought as computed by a DES with another key.</p>
+</blockquote>
+<p>  <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B3%87%E6%96%99%E5%8A%A0%E5%AF%86%E6%A8%99%E6%BA%96">DES in wiki</a></p>
+<p>  <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DES%E8%A1%A5%E5%85%85%E6%9D%90%E6%96%99#%E6%89%A9%E5%BC%A0%E5%87%BD%E6%95%B0_(E%E5%87%BD%E6%95%B0)">DES support material</a></p>
+</li>
+<li><p>2DES</p>
+<p>  Double DES cipher consists of applying the DES primitive twice: c = 2DES(k1, k2, m) def as DES(k1, DES(k2, m))</p>
+</li>
+<li><p>Triple DES/TDES</p>
+<p>  c = 3DES(k1, k2, k3, m) def as = DES(k1, DES−1 (k2, DES(k3, m)))</p>
+<p>  m = 3DES−1(k1, k2, k3, m) def. = DES−1(k3, DES(k2, DES−1(k1, c)))</p>
+</li>
+<li><p>Substitution Permutation Networks (SPNs)</p>
+<blockquote>
+<p>The round of a SPN acts on the whole cipher state with:</p>
+<p>A “non-linear” function providing Confusion represented as a lookup table, a.k.a.: Substitution-Box (S-box)</p>
+<p>A “linear” function providing Diffusion, i.e., a bitwise permutation, or pairs of rotate &amp; xor operations The addition of a part of the key schedule</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Modes-of-Operation"><a href="#Modes-of-Operation" class="headerlink" title="Modes of Operation"></a>Modes of Operation</h2><p>A Mode of operation specifies the way to encrypt a message m∈M of arbitrary length through employing a block cipher</p>
+<p>Currently, there are modes of operations to guarantee </p>
+<ul>
+<li><p>Confidentiality of messages:</p>
+<p>  Electronic CodeBook mode (ECB)</p>
+<p>  Cipher Block Chaining mode (CBC)–most popular–not entirely secure</p>
+<p>  Output FeedBack mode (OFB)</p>
+<p>  Cipher FeedBack mode (CFB)</p>
+<p>  Counter mode (CTR)</p>
+</li>
+<li><p>Authentication of messages:<br>  CMAC</p>
+</li>
+<li><p>Both confidentiality and authentication:<br>  CCM and GCM</p>
+</li>
+</ul>
+<h2 id="CBC"><a href="#CBC" class="headerlink" title="CBC"></a>CBC</h2><p><strong>Encryption</strong></p>
+<p>c<sub>0</sub> = IV<br>c<sub>i</sub> = E<sub>k</sub> (m<sub>i</sub> ⊕ c<sub>i-1</sub>), for i ≥ 1</p>
+<blockquote>
+<p>The Initialization Vector (IV) ensures that two encryptions of the same ptx produce different ctxs</p>
+</blockquote>
+<p><strong>Decryption</strong></p>
+<p>m<sub>i</sub> = D<sub>k</sub> (c<sub>i</sub>) ⊕ c<sub>i-1</sub>, for i ≥ 1</p>
+<h2 id="Stream-Based-Models"><a href="#Stream-Based-Models" class="headerlink" title="Stream Based Models"></a>Stream Based Models</h2><p>Given a plaintext message m∈M as a sequence of blocks m=&lt;m1, m2, . . . ,&gt; the CFB, OFB and CTR modes of operation generate a key stream k1, k2, k3 . . . (each key has the size of a block) to mask the ptx m: ci = mi ⊕ ki , for i ≥ 1</p>
+<h1 id="Mar-12-SPN-amp-AES"><a href="#Mar-12-SPN-amp-AES" class="headerlink" title="Mar 12 SPN &amp; AES"></a>Mar 12 SPN &amp; AES</h1><h2 id="SPN"><a href="#SPN" class="headerlink" title="SPN"></a><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Substitution%E2%80%93permutation_network">SPN</a></h2><p>SPN are built along <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Confusion_and_diffusion">Shannon’s criteria of confusion and diffusion</a></p>
+<ul>
+<li><p>Confusion: obtained from the key mixing and substitution phase</p>
+<blockquote>
+<p>make the relationship between the key and cipher text as complicated as possible. Which means given cipher text it is hard to derive the key</p>
+</blockquote>
+</li>
+<li><p>Diffusion: obtained through the permutation of linear diffusion phase</p>
+<blockquote>
+<p>dissipating the statistical structure of plaintext over the bulk of ciphertext. Which means the attacker could not break the system by statistic methods</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a></h2><ul>
+<li><p>128-bit block size (thought as a 4×4 byte matrix)</p>
+</li>
+<li><p>3 key sizes (128/192/256-bits)</p>
+<blockquote>
+<p>Round Structure: Given a 4*4 byte matrix as input</p>
+<ol>
+<li><p>A Substitution layer in the form of 16 S-boxes, 8-to-8 bit</p>
+</li>
+<li><p>A Permutation layer implemented via a bytewise rotation (ShiftRows) and a xor-linear operation among state bytes (MixColumn)</p>
+</li>
+<li><p>A key addition: bitwise ⊕, with 128 bits of expanded key material</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h2 id="Steam-Ciphers"><a href="#Steam-Ciphers" class="headerlink" title="Steam Ciphers"></a>Steam Ciphers</h2><p>In a Stream Cipher, we would like to </p>
+<ol>
+<li><p>use short keys k ∈ K to encrypt long messages </p>
+</li>
+<li><p>use algorithmically generated pseudo-random values for the keystream instead of truly random ones </p>
+</li>
+<li><p>be sure that the same keystream sequence is repeated only after a very long sequence of messages has been encrypted (. . . a practical value for infinity)</p>
+</li>
+</ol>
+<blockquote>
+<p>Synchronous Stream Ciphers</p>
+<p>The keystream is generated as a function of the cipher key and of the memory elements, independently of any previous ptx or ctx digit, i.e. ki=f(k,s0,s1,…)</p>
+</blockquote>
+<blockquote>
+<p>Asynchronous Stream Ciphers</p>
+<p>The keystream is generated as a function of the cipher key and a finite number of previous ctxs. </p>
+<p>Given a key k and an initial state S0 = ⟨sL−1, . . . , s0⟩ the keystream is composedas: ki =f(k,Si,Si−1,…)with Si =⟨ci+L−1,ci+L−2,…,ci+1,ci⟩</p>
+</blockquote>
+<h2 id="LFSR-Linear-Feedback-Shift-Registers"><a href="#LFSR-Linear-Feedback-Shift-Registers" class="headerlink" title="LFSR/Linear Feedback Shift Registers"></a>LFSR/Linear Feedback Shift Registers</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=sKUhFpVxNWc">https://www.youtube.com/watch?v=sKUhFpVxNWc</a></p>
+<h1 id="Mar-15-Hybrid-Cryptosystems"><a href="#Mar-15-Hybrid-Cryptosystems" class="headerlink" title="Mar 15 Hybrid Cryptosystems"></a>Mar 15 Hybrid Cryptosystems</h1><h2 id="Hybrid-cryptosystems"><a href="#Hybrid-cryptosystems" class="headerlink" title="Hybrid cryptosystems"></a>Hybrid cryptosystems</h2><p>Encryption: Alice generates a random symmetric key k, encrypts the message with it, and encrypts k with kB<sub>pub</sub></p>
+<p>Decryption: Bob decrypts k using kB<sub>pri</sub>, and uses it to decrypt the message, after which he may discards k.</p>
+<p>Signature: Alice should sign something smaller than the whole message, although uniquely bound to it in some way</p>
+<blockquote>
+<p>Solving the efficient signature problem requires a new cryptographic primitive, the cryptographic hash</p>
+</blockquote>
+<h2 id="Cryptographic-Hash"><a href="#Cryptographic-Hash" class="headerlink" title="Cryptographic Hash"></a>Cryptographic Hash</h2><p>A hash is a deterministic function from arbitrary length message m, to fixed length output h = H(m) (Practically used to obtain a fixed-length “label” h for a digital object)</p>
+<blockquote>
+<p>The same value of h may be the hash of different messages (no such thing as bijective arbitrary size → fixed size compression)</p>
+</blockquote>
+<blockquote>
+<p>Property</p>
+<ol>
+<li><p>Given h, hard to find m such that H(m)=h</p>
+</li>
+<li><p>Given m, hard to find m’ such that H(m)=H(m’)</p>
+</li>
+<li><p>Hard to find m’ and m’’ such that H(m’)=H(m’’)</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="Public-Key-Authentication-证明公钥匙是谁的"><a href="#Public-Key-Authentication-证明公钥匙是谁的" class="headerlink" title="Public Key Authentication[证明公钥匙是谁的]"></a>Public Key Authentication[证明公钥匙是谁的]</h2><p>To prevent impersonation attack on publich key cryptosystems.(Pretend to be someone you are not and steal the information). Here rises the need of <strong>DIGITAL CERTIFICATE of authenticity of public keys</strong></p>
+<h2 id="Digital-Certificate"><a href="#Digital-Certificate" class="headerlink" title="Digital Certificate"></a>Digital Certificate</h2><p>Our purpose is to authenticate the binding of a public key to the identity of someone/some company</p>
+<p>举个例子方便大家理解，假设我们公司”ABC Company”花了1000块钱，向一个证书发布机构”SecureTrust CA”为我们自己的公司”ABC Company”申请了一张证书，注意，这个证书发布机构”SecureTrust CA”是一个大家公认并被一些权威机构接受的证书发布机构，我们的操作系统里面已经安装了”SecureTrust CA”的证书。”SecureTrust CA”在给我们发布证书时，把Issuer,Public key,Subject,Valid from,Valid to等信息以明文的形式写到证书里面，然后用一个指纹算法计算出这些数字证书内容的一个指纹，并把指纹和指纹算法用自己的私钥进行加密，然后和证书的内容一起发布，同时”SecureTrust CA”还会给一个我们公司”ABC Company”的私钥给到我们。我们花了1000块钱买的这个证书的内容如下：</p>
+<p>×××××××××××××××证书内容开始×××××××××××××××××</p>
+<p>Issuer : SecureTrust CA</p>
+<p>Subject : ABC Company</p>
+<p>Valid from ： 某个日期</p>
+<p>Valid to： 某个日期</p>
+<p>Public Key : 一串很长的数字</p>
+<p>…… 其它的一些证书内容……</p>
+<p>{证书的指纹和计算指纹所使用的指纹算法}[SecureTrust CA的私钥|RSA]</p>
+<p>//这个部分验证了消息的完整性，确定这个消息没有被人中途修改过      </p>
+<p>//这个就是”SecureTrust CA”对这个证书的一个数字签名，表示这个证书确实是他发布的，有什么问题他会负责(收了我们1000块，出了问题肯定要负责任的)</p>
+<p>×××××××××××××××证书内容结束×××××××××××××××××</p>
+<p>//{} 表示RSA加密后的内容，[ | ]表示用什么密钥和算法进行加密</p>
+<blockquote>
+<ol>
+<li><p>首先当用户收到了来自一个服务器的一个安全证书，他会检查是否CA是这个用户信任的CA</p>
+</li>
+<li><p>其次用户会检查这个安全证书是否是权威的，也就是通过CA公布的公钥来验证CA的数字签名</p>
+</li>
+<li><p>如果用户确认了这一消息（该证书由一个可信赖的CA颁发并且内容没有修改过），那么这份安全证书就可以被信任</p>
+</li>
+</ol>
+</blockquote>
+<p>A keypair can be compromised (e.g. by theft, blackmail)。 Revocation of a certificate could be done by CRLs, or OCSP.</p>
+<h2 id="Who-Signs-The-Certificate"><a href="#Who-Signs-The-Certificate" class="headerlink" title="Who Signs The Certificate"></a>Who Signs The Certificate</h2><p><strong>PKI/Public Key Infrastructure</strong>: A centralized, tree structured<br>architecture of entities which sign certificates of their subsiders. The root authorities are implicitly trusted</p>
+<pre><code>Root CAs are a single point of failure for the whole infrastructure: if a Root CA gets its key compromised, all the certificates issued from offspring CAs become forgeable.</code></pre>
+<blockquote>
+<p>ACME Control</p>
+</blockquote>
+<p><strong>WoT/Web-of-Trust</strong>: A distributed architecture relying on the “small world assumption” where everyone can sign certificates. The trust on the authenticity of a certificate is established depending on the trust on the authenticity of its signers</p>
+<ul>
+<li><p><strong>Users</strong>: The only actor of the scheme are users, they : </p>
+<p>  Encrypt/sign/verify a digital object (file/mail message)</p>
+<p>  Acts as a CA signing someone else’s key/id pair</p>
+<p>  Keep a local key/id keyring where all the certificates are kept </p>
+<p>  Choose which users they trust to be acting as a CA</p>
+</li>
+<li><p><strong>Keyservers</strong>: Provide a globally synchronized, trusted archive of public certificates.</p>
+<p>  Public lookup is provided via either key ID or user ID</p>
+<p>  The archive is append only, no practical removal is possible </p>
+<p>  Anyone can run a keyserver, provided he has enough resources.</p>
+</li>
+<li><p><strong>Trust Levels</strong>:</p>
+<p>  The default trust levels in the WoT scheme are :</p>
+<ul>
+<li><p>ultimate: It’s the user’s own key trust level. Every key you sign with an “ultimate” trusted key becomes authentic.</p>
+</li>
+<li><p>complete: One signature by a key with this level of trust makes the key/id pair authentic.</p>
+</li>
+<li><p>marginal: At least 2 keys with marginal trust have to sign a key/id pair to make it authentic.</p>
+</li>
+<li><p>untrusted: Untrusted key signatures do not contribute to mark a key/id pair as authentic</p>
+<blockquote>
+<p>This based on the assuming that before a certificate is signed, each user would be careful enough to verify the corresponding identity.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Certification Authority (CA): An entity (typically a firm) which takes care of signing the certificates, and distributes its public key to all the users in a trusted manner</p>
+<blockquote>
+<ol>
+<li><p>The CA creates its own keypair and fills in the fields of its certificate</p>
+</li>
+<li><p>We assume, for the sake of clarity, that we are describing a root CA, i.e. one sitting at the top of the PKI hierarchy The CA self-signs its own certificate, and stores its own private key in a tightly guarded place (at least,hopefully)</p>
+</li>
+<li><p>The CA takes care to distribute its self-signed public key certificate in a safe manner to the largest possible user-base</p>
+</li>
+</ol>
+</blockquote>
+</li>
+<li><p>Registration Authority (RA): An entity (again, usually a firm) which takes care of verifying the actual authenticity of a certificate, gathering data on the user (physically checking his/her identity and certificate hash). Very often, it coincides with the CA</p>
+</li>
+<li><p>User: Asks the CA to sign his certificate, or employs the CA public keys to verify the authenticity of the certificates for another user.</p>
+</li>
+</ul>
+<h2 id="Mail-Protocol-PGP-GPG"><a href="#Mail-Protocol-PGP-GPG" class="headerlink" title="Mail Protocol PGP/GPG"></a>Mail Protocol PGP/GPG</h2><p>Possible to encrypt and sign any file, the most typical use is to encrypt and sign e-mail messages</p>
+<p>PGP/GPG messages encrypted and signed with an hybrid symmetric+asymmetric scheme for efficiency</p>
+<blockquote>
+<p>This method is the typical hybrid system. Sender generates a symmetric key to encrypt files and send the symmetric key encrypted in the reciever’s public key.</p>
+</blockquote>
+<h1 id="Useful-Links"><a href="#Useful-Links" class="headerlink" title="Useful Links"></a>Useful Links</h1><ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/52493697">https://www.zhihu.com/question/52493697</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/JeffreySun/archive/2010/06/24/1627247.html">http://www.cnblogs.com/JeffreySun/archive/2010/06/24/1627247.html</a></p>
+</li>
+</ol>
+<h1 id="Mar-19-Block-Cipher-Cryptanalyses-Linear-Cryptanalysis"><a href="#Mar-19-Block-Cipher-Cryptanalyses-Linear-Cryptanalysis" class="headerlink" title="Mar 19 Block Cipher Cryptanalyses: Linear Cryptanalysis"></a>Mar 19 Block Cipher Cryptanalyses: Linear Cryptanalysis</h1><h1 id="Block-Cipher-Cryptanalysis"><a href="#Block-Cipher-Cryptanalysis" class="headerlink" title="Block Cipher Cryptanalysis"></a>Block Cipher Cryptanalysis</h1><p>Modern block cipher cryptanalysis aims at either recovering the key with an effort smaller than bruteforce</p>
+<p>Block cipher cryptanalyses are usually split into two families: </p>
+<ul>
+<li><p>algebraic </p>
+</li>
+<li><p>statistical</p>
+</li>
+</ul>
+<h1 id="Algebraic-Analysis"><a href="#Algebraic-Analysis" class="headerlink" title="Algebraic Analysis"></a>Algebraic Analysis</h1><h1 id="Statistical-Analysis"><a href="#Statistical-Analysis" class="headerlink" title="Statistical Analysis"></a>Statistical Analysis</h1><p>All the computationally secure ones produce a ctx where the probability that a bit is either one or zero is biased (= 1 ± ε) by the 2 ptx value</p>
+<p><strong>Goal</strong>: find such relations between ptx and ctx, and exploit the statistical biases to extract a portion of the key</p>
+<h1 id="The-“TRIVIAL”-Cipher"><a href="#The-“TRIVIAL”-Cipher" class="headerlink" title="The “TRIVIAL” Cipher"></a>The “TRIVIAL” Cipher</h1><h1 id="S-Boxes"><a href="#S-Boxes" class="headerlink" title="S-Boxes"></a>S-Boxes</h1><p>Without S-Boxes, the linear relations between ptx and ctx bits are always hold( i.e. with probability = 1)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/POLIMI/" rel="tag"># POLIMI</a>
+              <a href="/tags/Cryptography/" rel="tag"># Cryptography</a>
+              <a href="/tags/Computer-Security/" rel="tag"># Computer Security</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/24/AI-Notes/" rel="next" title="AI Notes">
+                  AI Notes <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RookieAju's</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

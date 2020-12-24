@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+<meta name="description" content="A short review of AI Basic Knowledge.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Notes">
+<meta property="og:url" content="http://example.com/2020/12/24/AI-Notes/index.html">
+<meta property="og:site_name" content="RookieAju&#39;s workshop">
+<meta property="og:description" content="A short review of AI Basic Knowledge.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-24T13:49:57.000Z">
+<meta property="article:modified_time" content="2020-12-24T13:54:59.480Z">
+<meta property="article:author" content="RookieAju&#39;s">
+<meta property="article:tag" content="POLIMI">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/12/24/AI-Notes/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+<title>AI Notes | RookieAju's workshop</title>
+  
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">RookieAju's workshop</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Each question deserves an answer</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#General-Information"><span class="nav-number">1.</span> <span class="nav-text">General Information</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-I-INTRODUCTION"><span class="nav-number">2.</span> <span class="nav-text">Chapter I INTRODUCTION</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-What-is-AI"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 What is AI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-The-Foundations-of-AI"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 The Foundations of AI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-The-History-of-AI"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 The History of AI:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-The-state-of-art-Some-Real-Applications"><span class="nav-number">2.4.</span> <span class="nav-text">1.4 The state of art: Some Real Applications</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-II-INTELLIGENT-AGENTS"><span class="nav-number">3.</span> <span class="nav-text">Chapter II INTELLIGENT AGENTS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Agents-and-Environments"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 Agents and Environments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Good-behavior-the-concepts-of-retionality"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 Good behavior: the concepts of retionality</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-3-The-Nature-of-Environments"><span class="nav-number">4.</span> <span class="nav-text">2.3 The Nature of Environments</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-The-Structure-of-Agents"><span class="nav-number">4.1.</span> <span class="nav-text">2.4 The Structure of Agents</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-III-SOLVING-PROBLEMS-BY-SEARCHING"><span class="nav-number">5.</span> <span class="nav-text">Chapter III SOLVING PROBLEMS BY SEARCHING</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Problem-solving-agents"><span class="nav-number">5.1.</span> <span class="nav-text">3.1. Problem-solving agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Examples"><span class="nav-number">5.2.</span> <span class="nav-text">3.2 Examples</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Searching-for-Solutions"><span class="nav-number">5.3.</span> <span class="nav-text">3.3 Searching for Solutions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-Uninformed-search-strategies"><span class="nav-number">5.4.</span> <span class="nav-text">3.4 Uninformed search strategies</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Breadth-first-search"><span class="nav-number">5.4.1.</span> <span class="nav-text">Breadth-first search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-cost-search"><span class="nav-number">5.4.2.</span> <span class="nav-text">Uniform cost search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Depth-first-search"><span class="nav-number">5.4.3.</span> <span class="nav-text">Depth first search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Depth-limited-search"><span class="nav-number">5.4.4.</span> <span class="nav-text">Depth-limited search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterative-deepening-depth-first-search"><span class="nav-number">5.4.5.</span> <span class="nav-text">Iterative deepening depth-first search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bidirectional-search"><span class="nav-number">5.4.6.</span> <span class="nav-text">Bidirectional search</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-Informed-Heuristic-Search-Strategies"><span class="nav-number">5.5.</span> <span class="nav-text">3.5 Informed (Heuristic) Search Strategies</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Greedy-best-first-search"><span class="nav-number">5.5.1.</span> <span class="nav-text">Greedy best first search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-search-Minimizing-the-total-estimated-solution-cost"><span class="nav-number">5.5.2.</span> <span class="nav-text">A* search: Minimizing the total estimated solution cost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-bounded-heuristic-search"><span class="nav-number">5.5.3.</span> <span class="nav-text">Memory-bounded heuristic search.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning-to-search-better"><span class="nav-number">5.5.4.</span> <span class="nav-text">Learning to search better</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-Heuristic-Functions"><span class="nav-number">5.6.</span> <span class="nav-text">3.6 Heuristic Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-SUMMARY"><span class="nav-number">5.7.</span> <span class="nav-text">3.7 SUMMARY</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-V-ADVERSARIAL-SEARCH"><span class="nav-number">6.</span> <span class="nav-text">Chapter V: ADVERSARIAL SEARCH</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-Games"><span class="nav-number">6.1.</span> <span class="nav-text">5.1 Games</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-Opttimal-decisions-in-games"><span class="nav-number">6.2.</span> <span class="nav-text">5.2 Opttimal decisions in games</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-minimax-algorithm"><span class="nav-number">6.2.1.</span> <span class="nav-text">The minimax algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mutipleplayer-games-gt-2"><span class="nav-number">6.2.2.</span> <span class="nav-text">Mutipleplayer games (&gt;&#x3D;2)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-Alpha-Beta-Pruning"><span class="nav-number">6.3.</span> <span class="nav-text">5.3 Alpha-Beta Pruning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-Imperfect-Real-Time-Decisions"><span class="nav-number">6.4.</span> <span class="nav-text">5.4 Imperfect Real-Time Decisions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-Stochastic-Games"><span class="nav-number">6.5.</span> <span class="nav-text">5.5 Stochastic Games</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-7-State-Of-The-Art-Game-Programs"><span class="nav-number">6.6.</span> <span class="nav-text">5.7 State Of The Art Game Programs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-8-Alternative-Approaches"><span class="nav-number">6.7.</span> <span class="nav-text">5.8 Alternative Approaches</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-9-Summary"><span class="nav-number">6.8.</span> <span class="nav-text">5.9 Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-VI-CONSTRAINT-SATISFACTION-PROBLEMS"><span class="nav-number">7.</span> <span class="nav-text">Chapter VI: CONSTRAINT SATISFACTION PROBLEMS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-Defining-CSP"><span class="nav-number">7.1.</span> <span class="nav-text">6.1 Defining CSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-Constraint-propagation-inference-in-CSPs"><span class="nav-number">7.2.</span> <span class="nav-text">6.2 Constraint propagation: inference in CSPs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-Consistency"><span class="nav-number">7.2.1.</span> <span class="nav-text">Node Consistency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arc-Consistency"><span class="nav-number">7.2.2.</span> <span class="nav-text">Arc Consistency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path-Consistency"><span class="nav-number">7.2.3.</span> <span class="nav-text">Path Consistency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K-consistency"><span class="nav-number">7.2.4.</span> <span class="nav-text">K-consistency</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Global-Constraints"><span class="nav-number">7.2.5.</span> <span class="nav-text">Global Constraints</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-Backtracking-search-for-CSPs"><span class="nav-number">7.3.</span> <span class="nav-text">6.3 Backtracking search for CSPs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Value-and-value-ordering"><span class="nav-number">7.3.1.</span> <span class="nav-text">Value and value ordering</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Which-variable-should-be-assigned-next"><span class="nav-number">7.3.1.1.</span> <span class="nav-text">Which variable should be assigned next?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#In-what-order-should-its-values-be-tried"><span class="nav-number">7.3.1.2.</span> <span class="nav-text">In what order should its values be tried?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Interleaving-search-and-inference"><span class="nav-number">7.3.2.</span> <span class="nav-text">Interleaving search and inference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intelligent-Backtracking-Looking-backward"><span class="nav-number">7.3.3.</span> <span class="nav-text">Intelligent Backtracking: Looking backward</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-VII-LOGICAL-AGENTS"><span class="nav-number">8.</span> <span class="nav-text">Chapter VII: LOGICAL AGENTS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-Knowledge-based-agents"><span class="nav-number">8.1.</span> <span class="nav-text">7.1 Knowledge-based agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-Logic"><span class="nav-number">8.2.</span> <span class="nav-text">7.3 Logic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-Propositional-Logic-A-very-simple-logic"><span class="nav-number">8.3.</span> <span class="nav-text">7.4 Propositional Logic: A very simple logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">8.3.1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semantics"><span class="nav-number">8.3.2.</span> <span class="nav-text">Semantics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-Propositional-Theorem-Proving"><span class="nav-number">8.4.</span> <span class="nav-text">7.5 Propositional Theorem Proving</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inference-and-proof"><span class="nav-number">8.4.1.</span> <span class="nav-text">Inference and proof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proof-by-resolution"><span class="nav-number">8.4.2.</span> <span class="nav-text">Proof by resolution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-amp-Backward-chaining"><span class="nav-number">8.4.3.</span> <span class="nav-text">Forward&amp;Backward chaining</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-X-CLASSICAL-PLANNING"><span class="nav-number">9.</span> <span class="nav-text">Chapter X: CLASSICAL PLANNING</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-Definition-of-classical-planning"><span class="nav-number">9.1.</span> <span class="nav-text">10.1 Definition of classical planning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-Algorithms-for-Planning-as-State-Space-Search"><span class="nav-number">9.2.</span> <span class="nav-text">10.2 Algorithms for Planning as State-Space Search</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-progression-state-space-search"><span class="nav-number">9.2.1.</span> <span class="nav-text">Forward (progression) state-space search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backward-regression-relevant-states-search"><span class="nav-number">9.2.2.</span> <span class="nav-text">Backward (regression) relevant-states search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Heuristics-for-planning"><span class="nav-number">9.2.3.</span> <span class="nav-text">Heuristics for planning</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-4-Other-Classical-Planning-Approaches"><span class="nav-number">9.3.</span> <span class="nav-text">10.4 Other Classical Planning Approaches</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#APPENDIX"><span class="nav-number">10.</span> <span class="nav-text">APPENDIX</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Monte-Carlo-Tree-Search"><span class="nav-number">10.1.</span> <span class="nav-text">Monte Carlo Tree Search</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">RookieAju's</p>
+  <div class="site-description" itemprop="description">NLP, PS4, Cyberpunk2077, Shenzhen, DeepLearning, Tongji</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/24/AI-Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="RookieAju's">
+      <meta itemprop="description" content="NLP, PS4, Cyberpunk2077, Shenzhen, DeepLearning, Tongji">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RookieAju's workshop">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AI Notes
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-12-24 21:49:57 / Modified: 21:54:59" itemprop="dateCreated datePublished" datetime="2020-12-24T21:49:57+08:00">2020-12-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>A short review of AI Basic Knowledge.</p>
+<a id="more"></a>
+
+<h1 id="General-Information"><a href="#General-Information" class="headerlink" title="General Information"></a>General Information</h1><p>This is a notes for the AI lesson of POLIMI 2018-2019.</p>
+<blockquote>
+<p>Chapter 1: Introduction. The whole chapter</p>
+<p>Chapter 2: Intelligent agents. The whole chapter</p>
+<p>Chapter 3: Solving problems by searching. Sections 3.1-3.6</p>
+<p>Chapter 5: Adversarial search. Sections 5.1-5.5, 5.7-5.8</p>
+<p>Chapter 6: Constraint propagation. Sections 6.1-6.3</p>
+<p>Chapter 7: Logical agents. Sections 7.1, 7.3-7.5, 7.6.1</p>
+<p>Chapter 10: Classical planning. Sections 10.1, 10.2, 10.4</p>
+</blockquote>
+<h1 id="Chapter-I-INTRODUCTION"><a href="#Chapter-I-INTRODUCTION" class="headerlink" title="Chapter I INTRODUCTION"></a>Chapter I INTRODUCTION</h1><h2 id="1-1-What-is-AI"><a href="#1-1-What-is-AI" class="headerlink" title="1.1 What is AI"></a>1.1 What is AI</h2><p>Four definitions: </p>
+<ol>
+<li>Thinking Humanly: Coginitive Science-首先我们需要知道如何定义“Humanly”，也就是人类究竟是如何思考的。在这种AI的定义中，我们寄希望于构造一个machine使其能够按照人类思考的方式进行思考，然而目前这个课题本事也是充满谜团和未知的。</li>
+<li>Thinking Rationally: The “laws of thought” Approach-这一定义涉及到Logic部分的内容，将Knowledge用Formal Language进行表述，从而使机器能够对这些Knowledge进行推导和解决。</li>
+<li>Acting Humanly: Turing Test-假如一个机器可以欺骗人类让人误以为对方是真正的人类，那么我们就认为这个机器达到了真正的智能的水平。</li>
+<li>Acting Rationally: The Rational Agent Approach-每一个agent都有一定的acts，我们定义【<em>A rational agent is one that acts so as to achieve the best outcome or, when there is uncertainty, the best expected outcome</em>】。根据这个定义，correct inferences对一个rational agent是格外重要的，因为这是使得agent能够到达他预设的goal的必要条件。</li>
+</ol>
+<h2 id="1-2-The-Foundations-of-AI"><a href="#1-2-The-Foundations-of-AI" class="headerlink" title="1.2 The Foundations of AI"></a>1.2 The Foundations of AI</h2><ol>
+<li>Philosophy: 知识从哪儿来？意识是怎样从大脑中诞生的？…</li>
+<li>Mathematics: 我们怎样通过formal rules推导新的正确的结论？通过计算可以得出什么？…</li>
+<li>Economics: 为了最大化收益应该怎样做结论？（决策论）…</li>
+<li>Neuroscience: 大脑是如何处理信息的？…</li>
+<li>Psychology: …</li>
+<li>Computer Engineering: …</li>
+<li>Control theory and cybernetics: …</li>
+<li>Liguistics :…</li>
+</ol>
+<h2 id="1-3-The-History-of-AI"><a href="#1-3-The-History-of-AI" class="headerlink" title="1.3 The History of AI:"></a>1.3 The History of AI:</h2><p>Knowledge Bases Systems/Neural Network/…</p>
+<h2 id="1-4-The-state-of-art-Some-Real-Applications"><a href="#1-4-The-state-of-art-Some-Real-Applications" class="headerlink" title="1.4 The state of art: Some Real Applications"></a>1.4 The state of art: Some Real Applications</h2><h1 id="Chapter-II-INTELLIGENT-AGENTS"><a href="#Chapter-II-INTELLIGENT-AGENTS" class="headerlink" title="Chapter II INTELLIGENT AGENTS"></a>Chapter II INTELLIGENT AGENTS</h1><h2 id="2-1-Agents-and-Environments"><a href="#2-1-Agents-and-Environments" class="headerlink" title="2.1 Agents and Environments"></a>2.1 Agents and Environments</h2><p>AGENT: An agent is anything that can be viewed as perceiving its environment through sensors and acting upon that environment through actuators.</p>
+<p>AGENT FUNCTION: Mathematically speaking, we say that an agent’s behavior is described by the agent function that maps any given percept sequence to an action.</p>
+<p>AGENT PROGRAM: The agent function for an artificial agent will be implemented by an agent program.</p>
+<blockquote>
+<p>The agent function is an abstract mathematical description; the agent program is a concrete implementation, running within some physical system.</p>
+</blockquote>
+<h2 id="2-2-Good-behavior-the-concepts-of-retionality"><a href="#2-2-Good-behavior-the-concepts-of-retionality" class="headerlink" title="2.2 Good behavior: the concepts of retionality"></a>2.2 Good behavior: the concepts of retionality</h2><p>A rational agent is one that does the right thing, but what does it mean to do the right thing?</p>
+<p>By considering the consequences of the agent’s behavior. When an agent is plunked down in an environment, it generates <strong>a sequence of actions</strong> according to the percepts it receives. This sequence of actions causes the environment to go through <strong>a sequence of states</strong>. If the sequence is desirable, then the agent has performed well. This notion of desirability is captured by a performance measure that evaluates any given sequence of environment states.</p>
+<p>Obviously, there is not one fixed performance measure for all tasks and agents; typically, a designer will devise one appropriate to the circumstances.</p>
+<p>Four PRECONDITIONS of rationality</p>
+<ol>
+<li>The performance measure that defines the criterion of success.</li>
+<li>The agent’s prior knowledge of the environment.</li>
+<li>The actions that the agent can perform.</li>
+<li>The agent’s percept sequence to date.</li>
+</ol>
+<p>DEFINITION OF A RATIONAL AGENT: For each possible percept sequence, a rational agent should select an action that is expected to maximize its performance measure, given the evidence provided by the percept sequence and whatever built-in knowledge the agent has.</p>
+<p>Rationality is not the same as <strong>perfection</strong>. Rationality maximizes expected performance, while perfection maximizes actual performance</p>
+<p>To the extent that an agent relies on the prior knowledge of its designer rather than on its own percepts, we say that the agent lacks autonomy. A rational agent should be autonomous—<strong>it should learn what it can to compensate for partial or incorrect prior knowledge</strong>.</p>
+<h1 id="2-3-The-Nature-of-Environments"><a href="#2-3-The-Nature-of-Environments" class="headerlink" title="2.3 The Nature of Environments"></a>2.3 The Nature of Environments</h1><p>In our discussion of the rationality of the simple vacuum-cleaner agent, we had to specify the performance measure, the environment, and the agent’s actuators and sensors. We group all these under the heading of the task environment. For the acronymically minded, we call this the <strong>PEAS (Performance, Environment, Actuators, Sensors) description</strong>.</p>
+<blockquote>
+<p>Properties of environments:</p>
+<p><strong>Fully observable vs partially observable</strong>:  If an agent’s sensors give it access to the complete state of the environment at each point in time, then we say that the task environ- ment is fully observable. </p>
+<p><strong>Single agent vs multiagent</strong>: For example, an agent solving a crossword puzzle by itself is clearly in a single-agent environment, whereas an agent playing chess is in a two- agent environment. </p>
+<p><strong>Deterministic vs stochastic</strong>:  If the next state of the environment is completely deter- mined by the current state and the action executed by the agent, then we say the environment is deterministic; otherwise, it is stochastic. </p>
+<p><strong>Episodic vs sequential</strong>: Many classification tasks are episodic. For example, an agent that has to spot damaged parts on an assembly line bases each decision on the current part, regardless of previous decisions; In sequential environments, on the other hand, the current decision could affect all future decisions.</p>
+<p><strong>Static vs dynamic</strong>: If the environment can change while an agent is deliberating, then we say the environment is dynamic for that agent; otherwise, it is static.</p>
+<p><strong>Discrete vs continuous</strong>: The discrete/continuous distinction applies to the state of the environment, to the way time is handled, and to the percepts and actions of the agent. </p>
+</blockquote>
+<h2 id="2-4-The-Structure-of-Agents"><a href="#2-4-The-Structure-of-Agents" class="headerlink" title="2.4 The Structure of Agents"></a>2.4 The Structure of Agents</h2><p>The job of AI is to design an <strong>agent program</strong> that implements the agent function — the mapping from percepts to actions. We assume this program will run on some sort of computing device with physical sensors and actuators—we call this the <strong>architecture</strong>:</p>
+<blockquote>
+<p>agent = architecture + program</p>
+</blockquote>
+<ol>
+<li>Simple reflex agents: These agents select actions on the basis of the current percept, ignoring the rest of the percept history. (e.g. 一个设计好的conversation agent，每当输入“你好”的时候，输出“你好”，但是这个机器人实际上并没有计算之前说了多少次你好，哪怕是输入一万次“你好”也会输出“你好”，而不是“你有完没完”。) </li>
+<li>Model-based reflex agents: The most effective way to handle partial observability is for the agent to keep track of the part of the world it can’t see now. That is, the agent should maintain some sort of internal state that depends on the percept history and thereby reflects at least some of the unobserved aspects of the current state. An agent that uses such a model is called a model-based agent.(e.g. 接上例提到的conversation agent，如果我们设计一个model—如一个FSA，当输入超过三次的“你好”后，会输出“你有完没完”，输入超过四次“你好”后输出null)</li>
+<li>Goal-based agents: Knowing something about the current state of the environment is not always enough to decide what to do. The agent needs some sort of goal information that describes situations that are desirable.(e.g. 比如设计一个用于解决推箱子问题的AI，它的goal是为了将所有的箱子按照一定的规则推到指定的位置)</li>
+<li>Utility-based agents: Goals alone are not enough to generate high-quality behavior in most environments. For example, many action sequences will get the taxi to its destination (thereby achieving the goal) but some are quicker, safer, more reliable, or cheaper than others. Goals just provide a crude binary distinction between “happy” and “unhappy” states. An agent’s utility function is essentially an internalization of the performance measure.</li>
+<li>Learning agents: Improving with experiencing</li>
+</ol>
+<blockquote>
+<p>All agents can improve their performance through learning.</p>
+</blockquote>
+<h1 id="Chapter-III-SOLVING-PROBLEMS-BY-SEARCHING"><a href="#Chapter-III-SOLVING-PROBLEMS-BY-SEARCHING" class="headerlink" title="Chapter III SOLVING PROBLEMS BY SEARCHING"></a>Chapter III SOLVING PROBLEMS BY SEARCHING</h1><p><strong>How an agent can find a sequence of actions that achieves its goals when no single action will do.</strong></p>
+<h2 id="3-1-Problem-solving-agents"><a href="#3-1-Problem-solving-agents" class="headerlink" title="3.1. Problem-solving agents"></a>3.1. Problem-solving agents</h2><p>Intelligent agents are supposed to maximize their performance measure. Achieving this is sometimes simplified if the agent can adopt a goal and aim at satisfying it.</p>
+<p>A problem is defined by five components:</p>
+<ol>
+<li>The initial state that the agent starts in.</li>
+<li>A description of the possible actions available to the agent. Given a particular state s, ACTIONS(s) returns the set of actions that can be executed in s.</li>
+<li>A description of what each action does; the formal name for this is the <strong>transition model</strong>, specified by a function RESULT(s,a) that returns the state that results from doing action a in state s. </li>
+<li>The goal test, which determines whether a given state is a goal state.</li>
+<li>A path cost function that assigns a numeric cost to each path.</li>
+</ol>
+<blockquote>
+<p>A solution to a problem is an action sequence that leads from the initial state to a goal state. Solution quality is measured by the path cost function, and an optimal solution has the lowest path cost among all solutions.</p>
+</blockquote>
+<h2 id="3-2-Examples"><a href="#3-2-Examples" class="headerlink" title="3.2 Examples"></a>3.2 Examples</h2><h2 id="3-3-Searching-for-Solutions"><a href="#3-3-Searching-for-Solutions" class="headerlink" title="3.3 Searching for Solutions"></a>3.3 Searching for Solutions</h2><p>Having formulated some problems, we now need to solve them. A solution is an action sequence, so search algorithms work by considering various possible action sequences.** The possible action sequences starting at the initial state form a search tree with the initial state at the root; the branches are actions and the nodes correspond to states in the state space of the problem**.</p>
+<p>Then we need to consider taking various actions. We do this by expanding the current state; that is, applying each legal action to the current state, thereby generating a new set of states. </p>
+<p>Search algorithms all share this basic structure; they vary primarily according to how they choose which state to expand next, which is called <strong>search strategy</strong>.</p>
+<blockquote>
+<p>Graph Search vs Tree Search: 在tree search中，我们可能会重复的陷入某一个redundant loop，而在graph search中，我们会记录我们所经过的node，确保我们不会浪费computing power在那些没有意义或者更加昂贵的solution上。</p>
+</blockquote>
+<p>Measuring problem-solving performances: 4-VALUES</p>
+<ol>
+<li>Completeness: Is the algorithm guaranteed to find a solution when there is one? </li>
+<li>Optimality: Does the strategy find the optimal solution? </li>
+<li>Time complexity: How long does it take to find a solution?</li>
+<li>Space complexity: How much memory is needed to perform the search?</li>
+</ol>
+<h2 id="3-4-Uninformed-search-strategies"><a href="#3-4-Uninformed-search-strategies" class="headerlink" title="3.4 Uninformed search strategies"></a>3.4 Uninformed search strategies</h2><p>This section covers several search strategies that come under the heading of uninformed search (also called blind search). The term means that the strategies have no additional information about states beyond that provided in the problem definition. All they can do is generate successors and distinguish a goal state from a non-goal state. (想象身处于一个迷宫之中，你知道这个迷宫是有一个出口的，但是你并不确定这个出口具体的方位，你能做的就是盲目的前后左右去探索迷宫直至找到出口为止。)</p>
+<h3 id="Breadth-first-search"><a href="#Breadth-first-search" class="headerlink" title="Breadth-first search"></a>Breadth-first search</h3><p>Breadth-first search is a simple strategy in which the root node is expanded first, then all the successors of the root node are expanded next, then their successors, and so on. In general, all the nodes are expanded at a given depth in the search tree before any nodes at the next level are expanded.</p>
+<p>Breadth-first search is optimal if the path cost is a nondecreasing function of the depth of the node. The most common such scenario is that all actions have the same cost. And of course it is complete.</p>
+<p>The time complexity and space complexity for it are both O(b<sup>d</sup>), b means the branching factor for each node, and d means the depth of the solution found. The memory requirements are a bigger problem for breadth-first search than is the execution time. One might wait 13 days for the solution to an important problem with search depth 12, but no personal computer has the petabyte of memory it would take. Fortunately, other strategies require less memory.</p>
+<h3 id="Uniform-cost-search"><a href="#Uniform-cost-search" class="headerlink" title="Uniform cost search"></a>Uniform cost search</h3><p>When all step costs are equal, breadth-first search is optimal because it always expands the shallowest unexpanded node. By a simple extension, we can find an algorithm that is optimal with any step-cost function. Instead of expanding the shallowest node, <strong>uniform-cost search expands the node n with the lowest path cost g(n)</strong>. This is done by storing the frontier as a priority queue ordered by g. </p>
+<p>Accoring to this description, it is not difficult to reach the conclusion that uniform cost search is optimal and complete</p>
+<p>Uniform-cost search does not care about the number of steps a path has, but only about their total cost. Therefore, it will get stuck in an infinite loop if there is a path with an infinite sequence of zero-cost actions.</p>
+<h3 id="Depth-first-search"><a href="#Depth-first-search" class="headerlink" title="Depth first search"></a>Depth first search</h3><p>Depth-first search always expands the deepest node in the current frontier of the search tree. The search proceeds immediately to the deepest level of the search tree, where the nodes have no successors. As those nodes are expanded, they are dropped from the frontier, so then the search “backs up” to the next deepest node that still has unexplored successors.</p>
+<p>And we could find that breadth-first-search uses a FIFO queue, depth-first search uses a LIFO queue.</p>
+<p>The properties of depth-first search depend strongly on whether the graph-search or tree-search version is used. The graph-search version, which avoids repeated states and redundant paths, is complete in finite state spaces because it will eventually expand every node. The tree-search version, on the other hand, is not complete (because that it may fall in a infinite redundant loop).</p>
+<p>The advantage of DFS is the space complexity. For a graph search, there is no advantage, but a depth-first tree search needs to store only a single path from the root to a leaf node, along with the remaining unexpanded sibling nodes for each node on the path. </p>
+<p>And DFS is complete, but not optimal assurance.</p>
+<h3 id="Depth-limited-search"><a href="#Depth-limited-search" class="headerlink" title="Depth-limited search"></a>Depth-limited search</h3><p>The embarrassing failure of depth-first search in infinite state spaces can be alleviated by supplying depth-first search with a predetermined depth limit l. That is, nodes at depth l are treated as if they have no successors. This approach is called depth-limited search. The depth limit solves the infinite-path problem.</p>
+<h3 id="Iterative-deepening-depth-first-search"><a href="#Iterative-deepening-depth-first-search" class="headerlink" title="Iterative deepening depth-first search"></a>Iterative deepening depth-first search</h3><p>Iterative deepening search (or iterative deepening depth-first search) is a general strategy, often used in combination with depth-first tree search, that finds the best depth limit. It does this by gradually increasing the limit—first 0, then 1, then 2, and so on—until a goal is found. This will occur when the depth limit reaches d, the depth of the shallowest goal node. </p>
+<p> Like depth-first search, its memory requirements are modest: O(bd) to be precise. Like breadth-first search, it is complete when the branching factor is finite and optimal when the path cost is a nondecreasing function of the depth of the node.</p>
+<p>In general, iterative deepening is the preferred uninformed search method when the search space is large and the depth of the solution is not known.</p>
+<h3 id="Bidirectional-search"><a href="#Bidirectional-search" class="headerlink" title="Bidirectional search"></a>Bidirectional search</h3><p>The idea behind bidirectional search is to run two simultaneous searches—one forward from the initial state and the other backward from the goal—hoping that the two searches meet in the middle.</p>
+
+
+<h2 id="3-5-Informed-Heuristic-Search-Strategies"><a href="#3-5-Informed-Heuristic-Search-Strategies" class="headerlink" title="3.5 Informed (Heuristic) Search Strategies"></a>3.5 Informed (Heuristic) Search Strategies</h2><p>This section shows how an informed search strategy—one that uses problem-specific knowledge beyond the definition of the problem itself—can find solutions more efficiently than can an uninformed strategy.(尽管我们依然身在迷宫之中，但是我们已经知道迷宫的出口在东北方向，那么直觉上我们会觉得东北方的路会有更大的可能能够带我们走出迷宫。)</p>
+<p>The evaluation function f(n) is construed as a cost estimate, so the node with the lowest evaluation is expanded first. Which means that it is the cost from the initial state to the goal state, even if this cost is estimated a lot. </p>
+<p>The heuristic function h(n) is estimated cost of the cheapest path from the state at node n to a goal state.</p>
+<h3 id="Greedy-best-first-search"><a href="#Greedy-best-first-search" class="headerlink" title="Greedy best first search"></a>Greedy best first search</h3><p>Greedy best-first search tries to expand the node that is closest to the goal, on the grounds that this is likely to lead to a solution quickly. </p>
+<p>And here in this search f(n)=h(n). (这也就是Greedy Best Search与A*的最大区别，我们只考虑哪个next state是最优的，无论从当前的state到这个next state的path cost是多少。)</p>
+<h3 id="A-search-Minimizing-the-total-estimated-solution-cost"><a href="#A-search-Minimizing-the-total-estimated-solution-cost" class="headerlink" title="A* search: Minimizing the total estimated solution cost"></a>A* search: Minimizing the total estimated solution cost</h3><p>The most widely used form of best-first search is called A* search. It evaluates nodes by combining <strong>g(n), the cost to reach the node, and h(n), the cost to get from the node to the goal</strong>: f(n)=g(n)+h(n)</p>
+<p>And here <strong>f(n) = estimated cost of the cheapest solution through n</strong>. Thus if we are trying to find the cheapest solution, a reasonable thing is to find the lowest f(n).</p>
+<blockquote>
+<p>Conditions for optimality: Admissibility and consistency</p>
+<p>The first condition we require for optimality is that h(n) be an admissible heuristic. <strong>An admissible heuristic is one that never overestimates the cost to reach the goal</strong>. Because g(n) is the actual cost to reach n along the current path, and f (n) = g(n) + h(n), we have as an immediate consequence that f(n) never overestimates the true cost of a solution along the current path through n.</p>
+<p>A second, slightly stronger condition called consistency (or sometimes monotonicity) is required only for applications of A* to graph search. A heuristic h(n) is consistent if, for every node n1 and every successor n2 of n1 generated by any action a, the estimated cost of reaching the goal from n2 is no greater than the step cost of getting to n2 plus the estimated cost of reaching the goal from n1: <strong>h(n1) ≤ c(n1, a, n2) + h(n2)</strong></p>
+</blockquote>
+<p>A* has the following properties: the tree-search version of A* is optimal if h(n) is admissible, while the graph-search version is optimal if h(n) is consistent.</p>
+<p>That A* search is complete, optimal, and optimally efficient among all such algorithms is rather satisfying. Unfortunately, it does not mean that A* is the answer to all our searching needs. The catch is that, for most problems, the number of states within the goal contour search space is still exponential in the length of the solution. And A* requires a high amount of space usage. This may be the biggest disadvantage of A*.</p>
+<h3 id="Memory-bounded-heuristic-search"><a href="#Memory-bounded-heuristic-search" class="headerlink" title="Memory-bounded heuristic search."></a>Memory-bounded heuristic search.</h3><p>The simplest way to reduce memory requirements for A* is to adapt the idea of iterative deepening to the heuristic search context, resulting in the iterative-deepening A* (IDA*) algorithm. </p>
+<p>The main difference between IDA* and standard iterative deepening is that the cutoff used is the f-cost (<em>g + h</em>) rather than the depth; at each iteration, the cutoff value is the smallest f-cost of any node that exceeded the cutoff on the previous iteration. RBFS is a great example in this search method. </p>
+<p>RBFS is similar to that of a recursive depth-first search, but rather than continuing indefinitely down the current path, it uses the f limit variable to keep track of the f-value of the best alternative path available from any ancestor of the current node. If the current node exceeds this limit, the recursion unwinds back to the alternative path. As the recursion unwinds, RBFS replaces the f-value of each node along the path with a backed-up value—–the best f-value of its children. In this way, RBFS remembers the f-value of the best leaf in the forgotten subtree and can therefore decide whether it’s worth reexpanding the subtree at some later time. RBFS is somewhat more efficient than IDA*, but still suffers from excessive node re-generation. (RBFS的优点在于，A*是一种在结构上与BFS有某些相同之处的算法，在探索树的过程中，如果足够深的话将会需要存储O(b<sup>d</sup>的nodes，这往往超过了我们能够容忍的space complexity，故我们采用RBFS，因为RBFS按照相同的原理选择下一个探索的点，但是一旦RBFS发现当前的路线的cost不是最优，就会unwind(先朝向root的方向然后再向下找当前最优cost的位置)，到达当前的最优的node，这样似乎没有产生什么好处，但是恰恰相反，在unwind的过程中，RBFS会更新路径上的点的h，因为这些h欺骗了RBFS的感情，当前的路径并不是最优的！同时RBFS也并不储存哪些点已经被expand了，下次如果revisit了这个点，那么重新计算就是了，RBFS就是使用这种方法来牺牲time来换取space。)</p>
+<h3 id="Learning-to-search-better"><a href="#Learning-to-search-better" class="headerlink" title="Learning to search better"></a>Learning to search better</h3><h2 id="3-6-Heuristic-Functions"><a href="#3-6-Heuristic-Functions" class="headerlink" title="3.6 Heuristic Functions"></a>3.6 Heuristic Functions</h2><p>In this part, we are going to discuss how to find a heuristic function and the importance of a good heuristic function.</p>
+<h2 id="3-7-SUMMARY"><a href="#3-7-SUMMARY" class="headerlink" title="3.7 SUMMARY"></a>3.7 SUMMARY</h2><p>Before an agent can start searching for solutions, a goal must be identified and a well- defined problem must be formulated.</p>
+<p>• A problem consists of five parts: the initial state, a set of actions, a transition model describing the results of those actions, a goal test function, and a path cost function. The environment of the problem is represented by a state space. A path through the state space from the initial state to a goal state is a solution.</p>
+<p>• Search algorithms treat states and actions as atomic: they do not consider any internal structure they might possess.</p>
+<p>• A general TREE-SEARCH algorithm considers all possible paths to find a solution, whereas a GRAPH-SEARCH algorithm avoids consideration of redundant paths.</p>
+<p>• Search algorithms are judged on the basis of completeness, optimality, time complexity, and space complexity. Complexity depends on b, the branching factor in the state space, and d, the depth of the shallowest solution.</p>
+<p>• Uninformed search methods have access only to the problem definition. The basic algorithms are as follows:</p>
+<ul>
+<li><p>Breadth-first search expands the shallowest nodes first; it is complete, optimal for unit step costs, but has exponential space complexity.</p>
+</li>
+<li><p>Uniform-cost search expands the node with lowest path cost, g(n), and is optimal for general step costs.</p>
+</li>
+<li><p>Depth-first search expands the deepest unexpanded node first. It is neither com- plete nor optimal, but has linear space complexity. Depth-limited search adds a depth bound.</p>
+</li>
+<li><p>Iterative deepening search calls depth-first search with increasing depth limits until a goal is found. It is complete, optimal for unit step costs, has time complexity comparable to breadth-first search, and has linear space complexity.</p>
+</li>
+<li><p>Bidirectional search can enormously reduce time complexity, but it is not always applicable and may require too much space.</p>
+</li>
+</ul>
+<p>• Informed search methods may have access to a heuristic function h(n) that estimates the cost of a solution from n.</p>
+<ul>
+<li><p>The generic best-first search algorithm selects a node for expansion according to an evaluation function.</p>
+</li>
+<li><p>Greedy best-first search expands nodes with minimal h(n). It is not optimal but is often efficient.</p>
+</li>
+<li><p>A∗ search expands nodes with minimal f (n) = g(n) + h(n). A∗ is complete and optimal, provided that h(n) is admissible (for TREE-SEARCH) or consistent (for GRAPH-SEARCH). The space complexity of A∗ is still prohibitive.</p>
+</li>
+<li><p>RBFS (recursive best-first search) and SMA∗ (simplified memory-bounded A∗) are robust, optimal search algorithms that use limited amounts of memory; given enough time, they can solve problems that A∗ cannot solve because it runs out of memory. [<a target="_blank" rel="noopener" href="https://www.slideshare.net/navidasadi1/an-example-of-using-rbfs-recursive-best-first-search-algorithm]">https://www.slideshare.net/navidasadi1/an-example-of-using-rbfs-recursive-best-first-search-algorithm]</a></p>
+</li>
+</ul>
+<p>• The performance of heuristic search algorithms depends on the quality of the heuristic function. One can sometimes construct good heuristics by relaxing the problem defi- nition, by storing precomputed solution costs for subproblems in a pattern database, or by learning from experience with the problem class.</p>
+<h1 id="Chapter-V-ADVERSARIAL-SEARCH"><a href="#Chapter-V-ADVERSARIAL-SEARCH" class="headerlink" title="Chapter V: ADVERSARIAL SEARCH"></a>Chapter V: ADVERSARIAL SEARCH</h1><p>We try to plan ahead in a world where other agents are planning against us.</p>
+<h2 id="5-1-Games"><a href="#5-1-Games" class="headerlink" title="5.1 Games"></a>5.1 Games</h2><p>Games is a problem that each agents needs to consider the actions of other agents and how they affact itw own welfare. Due to the great search space, the search algorithms introduced in Chapter III may not be applicable.</p>
+<p>We begin with a definition of the optimal move and an algorithm for finding it. We then look at techniques for choosing a good move when time is limited. Pruning allows us to ignore portions of the search tree that make no difference to the final choice, and heuristic evaluation functions allow us to approximate the true utility of a state without doing a complete search. Section 5.5 discusses games such as backgammon that <strong>include an element of chance</strong>; we also discuss bridge, which <strong>includes elements of imperfect information</strong> because not all cards are visible to each player. Finally, we look at how state-of-the-art game-playing programs fare against human opposition and at directions for future developments.</p>
+<p>We first consider games with two palyer, whom we call MAX and MIN. MAX moves first and then they take turns until the game is over. </p>
+<blockquote>
+<p>In formal language, It could be described as</p>
+<p>S0: The initial state, which specifies how the game is set up at the start.<br>PLAYER(s): Defines which player has the move in state s.<br>ACTIONS(s): Returns the set of legal moves in state s.<br>RESULT(s,a): The transition model, which defines the result of a move, which is another state.<br>TERMINAL-TEST(s): A terminal test, which is true when the game is over and false otherwise. States where the game has ended are called terminal states.<br>UTILITY(s, p): A utility function (also called an objective function or payoff function), defines the final numeric value for a game that ends in terminal state s for a player p. <strong>In chess, the outcome is a win, loss, or draw, with values +1, 0, or 1</strong>. Some games have a wider variety of possible outcomes; Chess is zero-sum. “Constant-sum” would have been a better term, but zero-sum is traditional and makes sense if you imagine each player is charged an entry fee of 1/2, and end with 0 or 1.</p>
+</blockquote>
+<p>The formal definition above help us to build a tree, while in general games, this tree would be too large to build. And in fact the main idea is that <strong>we don’t need to know the complete tree, we just need to build tree examining enough nodes to make a smart move</strong>.</p>
+<h2 id="5-2-Opttimal-decisions-in-games"><a href="#5-2-Opttimal-decisions-in-games" class="headerlink" title="5.2 Opttimal decisions in games"></a>5.2 Opttimal decisions in games</h2><p>Given a game tree, the optimal strategy can be determined from the minimax value of each node n, which we write as MINIMAX(n). This values of a terminal state is just its utility. Furthermore, given a choice, MAX prefers to move to a state of maximum value, while MIN prefers a state of minimum value. </p>
+
+
+<p>[Here in the above picture, s means node n]</p>
+
+
+<h3 id="The-minimax-algorithm"><a href="#The-minimax-algorithm" class="headerlink" title="The minimax algorithm"></a>The minimax algorithm</h3><p>minimax algorithm为每个state s都计算其MINIMAX(s)，从最底下的ternimal states开始，首先通过terminal state计算utility，然后向上根据min或者max更新父节点的utility，直至更新完完整的树，这种方法虽然在实际中是行不通的，但是本章所有的方法其实都建立在minimax algorithm的基础上。</p>
+<h3 id="Mutipleplayer-games-gt-2"><a href="#Mutipleplayer-games-gt-2" class="headerlink" title="Mutipleplayer games (&gt;=2)"></a>Mutipleplayer games (&gt;=2)</h3>
+
+<p>Actually this is vaery same like the minimax algorithm, while in each nodes we assign a vector (length equal to the number of players). And each level we choose the max/min by the vectors due to the values in certain dimension.</p>
+<h2 id="5-3-Alpha-Beta-Pruning"><a href="#5-3-Alpha-Beta-Pruning" class="headerlink" title="5.3 Alpha-Beta Pruning"></a>5.3 Alpha-Beta Pruning</h2><p>minimax的问题在于game states的数量实在是过于庞大(exponential)，但、是其实我们可以通过pruning有效的减小树的规模，在adversial search中常用的方法是apha-beta pruning。对于一棵标准的minimax树，我们可以去除那些永远都不会影响到我们最终决定的子树。我们在上面的minmax的例子中不难看出，minimax的tree是我们需要每一个terminal state的utility，然后才得以建立的complete search tree。而alpha beta pruning的核心就是，假如我（MAX）目前的最好选择是3，那么某个action a3后如果对手有一种选择可能导致2，那么我们根本不需要考虑这个action a3，因为对手不是笨蛋，一定会做出那种让我们得到2的action a’，所以我们就将这个action a3给prune掉了（即不考虑掉了）。</p>
+
+
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3b464aeba078">link1 for Alpha-Beta Pruning</a></p>
+<p><a target="_blank" rel="noopener" href="http://inst.eecs.berkeley.edu/~cs61b/fa14/ta-materials/apps/ab_tree_practice/">link2 for Alpha-Beta Pruning</a></p>
+<h2 id="5-4-Imperfect-Real-Time-Decisions"><a href="#5-4-Imperfect-Real-Time-Decisions" class="headerlink" title="5.4 Imperfect Real-Time Decisions"></a>5.4 Imperfect Real-Time Decisions</h2><p>在minimax算法中，我们需要创造一棵完整的树，尽管alpha-beta剪枝帮助我们缩减了这棵树的规模，但是通常情况下这棵树的深度依然过于庞大。所以在本节中，我们使用一个heuristic evaluation function来将那些non-terminal nodes转化成terminal leaves。</p>
+
+
+<blockquote>
+<p>Evaluation function:evaluation function的作用是对于一个given position of game(state)，返回一个estimation of the expected utility。</p>
+</blockquote>
+<h2 id="5-5-Stochastic-Games"><a href="#5-5-Stochastic-Games" class="headerlink" title="5.5 Stochastic Games"></a>5.5 Stochastic Games</h2><p>在实际中，我们常常需要面对受概率影响的随机情况，因此我们无法像是在之前的情况中一样构建树，我们需要构建的是一棵随机树。</p>
+
+
+<p>为了作出最优的决定，我们需要为每个nodes计算expecti-minimax values。换而言之，我们的策略可以概括为<strong>尽人事知天命</strong>。</p>
+
+
+<h2 id="5-7-State-Of-The-Art-Game-Programs"><a href="#5-7-State-Of-The-Art-Game-Programs" class="headerlink" title="5.7 State Of The Art Game Programs"></a>5.7 State Of The Art Game Programs</h2><h2 id="5-8-Alternative-Approaches"><a href="#5-8-Alternative-Approaches" class="headerlink" title="5.8 Alternative Approaches"></a>5.8 Alternative Approaches</h2><p>精准的计算optimal decision在大部分的情况下是无法处理的，实际中所有的算法都或多或少的进行了一定程度的近似和假设。</p>
+<h2 id="5-9-Summary"><a href="#5-9-Summary" class="headerlink" title="5.9 Summary"></a>5.9 Summary</h2><p>• A game can be defined by the initial state (how the board is set up), the legal actions in each state, the result of each action, a terminal test (which says when the game is over), and a utility function that applies to terminal states.</p>
+<p>• In two-player zero-sum games with perfect information, the minimax algorithm can select optimal moves by a depth-first enumeration of the game tree.</p>
+<p>• The alpha–beta search algorithm computes the same optimal move as minimax, but achieves much greater efficiency by eliminating subtrees that are provably irrelevant.</p>
+<p>• Usually, it is not feasible to consider the whole game tree (even with alpha–beta), so we need to cut the search off at some point and apply a heuristic evaluation function that estimates the utility of a state.</p>
+<p>• Many game programs precompute tables of best moves in the opening and endgame so that they can look up a move rather than search.</p>
+<p>• Games of chance can be handled by an extension to the minimax algorithm that eval- uates a chance node by taking the average utility of all its children, weighted by the probability of each child.</p>
+<h1 id="Chapter-VI-CONSTRAINT-SATISFACTION-PROBLEMS"><a href="#Chapter-VI-CONSTRAINT-SATISFACTION-PROBLEMS" class="headerlink" title="Chapter VI: CONSTRAINT SATISFACTION PROBLEMS"></a>Chapter VI: CONSTRAINT SATISFACTION PROBLEMS</h1><p>This chapter describes a way to solve certain problems more efficiently. We used a factored representation for each state: a set of variables, each has a value. And a problem is solved when each variable has a value that satisfies all the constraints. A problem described this way is called a constraint satisfcation problem, CSP in short.</p>
+<p>CSP search algorithms take advantage of the structure of states and use general-purpose rather than problem-specific heuristics to enable the solution of complex problems.(我们不需要根据每一个问题去设计一个heuristic function，我们只需要使用general的least remaining values策略进行搜索即可) The main idea is to eliminate large portions of the search space all at once by identifying variable/value combinations that violate the constraints.</p>
+<h2 id="6-1-Defining-CSP"><a href="#6-1-Defining-CSP" class="headerlink" title="6.1 Defining CSP"></a>6.1 Defining CSP</h2><p>A constraint satisfaction problem consists of three components, X, D, and C : </p>
+<ol>
+<li>X is a set of variables, {X1,…,Xn}.</li>
+<li>D is a set of domains, {D1, . . . , Dn}, one for each variable.</li>
+<li>C is a set of constraints that specify allowable combinations of values.</li>
+</ol>
+<h2 id="6-2-Constraint-propagation-inference-in-CSPs"><a href="#6-2-Constraint-propagation-inference-in-CSPs" class="headerlink" title="6.2 Constraint propagation: inference in CSPs"></a>6.2 Constraint propagation: inference in CSPs</h2><p>In regular state-space search, an algorithm can do only one thing: search. In CSPs there is a choice: an algorithm can search (choose a new variable assignment from several possibilities) or <strong>do a specific type of inference called constraint propagation: using the constraints to reduce the number of legal values for a variable, which can reduce the legal values for another variables</strong>.</p>
+<p>THe key idea is <strong>local consistency</strong>, If we treat each variable as a node in a graph and each binary constraint as an arc, then the process of enforcing local consistency in each part of the graph causes inconsistent values to be eliminated throughout the graph. </p>
+<h3 id="Node-Consistency"><a href="#Node-Consistency" class="headerlink" title="Node Consistency"></a>Node Consistency</h3><p>A single variable (corresponding to a node in the CSP network) is node-consistent if all the values in the variable’s domain satisfy the variable’s unary constraints. (e.g.在地图染色问题中，我们使用红黄蓝将不同的区域染色，假如我们将一个区域A染色为红色，那么对于一个和A相邻的区域B来说，对于B的Domain本来是{红，黄，蓝}三种选择，但是为了使B node consistent,也就是对于B domain中任何一个value都满足我们的constraint-“相邻的区域颜色不同”，那么我们需要将B的domain修改为{黄，蓝}，这个时候我们说B是node consistent，如果对于graph中的每一个点都node cnsistent，那么我们说这个graph是node consistent的)</p>
+<h3 id="Arc-Consistency"><a href="#Arc-Consistency" class="headerlink" title="Arc Consistency"></a>Arc Consistency</h3><p>A variable in a CSP is arc-consistent if every value in its domain satisfies the variable’s binary constraints. More formally, Xi is arc-consistent with respect to another variable Xj if for every value in the current domain Di there is some value in the domain Dj that satisfies the binary constraint on the arc (Xi,Xj). (e.g. 比如一个对于variable X和Y的constraint：Y=X<sup>2</sup>，为了使X相对于Y arc consistent，那么我们可以将X的domain设为{0,1,2,3}，将Y的domain设为{0,1,4,9})</p>
+<p>The most popular algorithm for arc consistency is called AC-3. To make every variable arc-consistent, the AC-3 algorithm maintains a queue of arcs to consider.[<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/28257422/ac-1-ac-2-and-ac-3-algorithms-arc-consistency]">https://stackoverflow.com/questions/28257422/ac-1-ac-2-and-ac-3-algorithms-arc-consistency]</a></p>
+<blockquote>
+<p>AC-3: Initially, the queue contains all the arcs in the CSP. AC-3 then pops off an arbitrary arc (Xi , Xj ) from the queue and makes Xi arc-consistent with respect to Xj . If this leaves Di unchanged, the algorithm just moves on to the next arc. But if this revises Di (makes the domain smaller), then we add to the queue all arcs (Xk,Xi) where Xk is a neighbor of Xi. We need to do that because the change in Di might enable further reductions in the domains of Dk, even if we have previously considered Xk. If Di is revised down to nothing, then we know the whole CSP has no consistent solution, and AC-3 can immediately return failure. Otherwise, we keep checking, trying to remove values from the domains of variables until no more arcs are in the queue. At that point, we are left with a CSP that is equivalent to the original CSP—they both have the same solutions—but the arc-consistent CSP will in most cases be faster to search because its variables have smaller domains. (AC-3可以如下描述，我们对于一个graph而言，有诸多的node和arc需要去考虑，对于每一个node都对应一个domain，那么我们建立一个queue包含所有的arc，我们从queue中挑选一个arc (X<sub>i</sub>,X<sub>j</sub>)，检查这个arc是否consistent，如果不consistent，那么我们就修改domain，如果X<sub>i</sub>的domain D<sub>i</sub>被修改，那么就将所有的arc (X<sub>k</sub>,X<sub>i</sub>), k is a neighbor of i,添加进我们的queque中。如果D<sub>i</sub>为空，证明当前CSP没有consistent的solution，而AC-3也会返回一个failure，不然的话我们就可以一直进行这个过程，直到queue中不包含任何arc为止，此时我们得到的一个图，其拓扑结构没有任何改变，但是对于一个node而言，他的D<sub>i</sub>极大的减小了，这为我们后续的搜素提供了便利。)</p>
+</blockquote>
+<h3 id="Path-Consistency"><a href="#Path-Consistency" class="headerlink" title="Path Consistency"></a>Path Consistency</h3><p>Consider the map-coloring problem on Australia, but with only two colors allowed, red and blue. Arc consistency can do nothing because every variable is already arc consistent: each can be red with blue at the other end of the arc (or vice versa). But clearly there is no solution to the problem. we need at least three colors for them alone.</p>
+<p>Arc consistency tightens down the domains (unary constraints) using the arcs (binary constraints). To make progress on problems like map coloring, we need a stronger notion of consistency. Path consistency tightens the binary constraints by using implicit constraints that are inferred by looking at triples of variables.</p>
+<p>A two-variable set {Xi,Xj} is path-consistent with respect to a third variable Xm if, for every assignment {Xi = a, Xj = b} consistent with the constraints on {Xi , Xj }, there is an assignment to Xm that satisfies the constraints on {Xi , Xm } and {Xm , Xj }. This is called path consistency. (e.g. 我们上面提到了，在地图染色问题中，假如每一个node的domain都是{红，黄}，显然这个graph是arc consistent的，但是这个CSP问题也很明显是unsolvable，但是如果我们用path consistency去检验，那么我们对于三个相邻的区域A，B，C，我们可以看到{A,B}和C不是path consistency的，当A和B各取到红、黄的时候，对于C没有一个assignment可以满足我们的constraint。)</p>
+<h3 id="K-consistency"><a href="#K-consistency" class="headerlink" title="K-consistency"></a>K-consistency</h3><p>Stronger forms of propagation can be defined with the notion of k-consistency. A CSP is k-consistent if, for any set of k − 1 variables and for any consistent assignment to those variables, a consistent value can always be assigned to any kth variable. (任意选取K-1个nodes，对于第K个node我们总能为他assign一个value使其consistent)。</p>
+<h3 id="Global-Constraints"><a href="#Global-Constraints" class="headerlink" title="Global Constraints"></a>Global Constraints</h3><p>Remember that a global constraint is one involving <strong>an arbitrary number of variables</strong> (but not necessarily all variables). Global constraints occur frequently in real problems and can be handled by special-purpose algorithms that are more efficient than the general-purpose methods described so far.</p>
+<h2 id="6-3-Backtracking-search-for-CSPs"><a href="#6-3-Backtracking-search-for-CSPs" class="headerlink" title="6.3 Backtracking search for CSPs"></a>6.3 Backtracking search for CSPs</h2><p>For a real Sudoku example, we could apply a standard depth limited search. While it is quite obvious that the states are too large to build.(CSP的核心思路就是，在知道我们当前的state后，如当前的格子是1，我们不应该探索那些不可能的choice，比如同一列中没有必要再去探索1的可能性，因为根据数独的性质，每行的数字都是唯一的)</p>
+<p>The term <strong>backtracking search</strong> is used for a DFS that <strong>chooses values for one variables at a time, and backtracks when a variable has no legal values left to assign</strong>. </p>
+
+
+<p>Just like we improve uninformed search, we could apply some techniques to improve the performance of backtracking with following directions:</p>
+<ol>
+<li>Which variable should be assigned next (SELECT-UNASSIGNED-VARIABLE), and in what order should its values be tried (ORDER-DOMAIN-VALUES)?</li>
+<li>What inferences should be performed at each step in the search (INFERENCE)?</li>
+<li>When the search arrives at an assignment that violates a constraint, can the search avoid repeating this failure?</li>
+</ol>
+<h3 id="Value-and-value-ordering"><a href="#Value-and-value-ordering" class="headerlink" title="Value and value ordering"></a>Value and value ordering</h3><h4 id="Which-variable-should-be-assigned-next"><a href="#Which-variable-should-be-assigned-next" class="headerlink" title="Which variable should be assigned next?"></a>Which variable should be assigned next?</h4><p>One of the most important step in Backtracking problems is that select unassigned variables and assign it certain values. And the most important strategy is called the <strong>minimum remaining value (MRV) search</strong>. It is also called the most constraint variable heuristic. The general idea is to <strong>choose the variable with the fewest legal values</strong>.</p>
+<p>Another idea is known as <strong>degree heuristic</strong>. It attempts to <strong>select the variable that is involved in the largest number of constraints on other unassigned values</strong>.(比如在地图染色问题中，因为对于每一个node的domain都是{红，黄，蓝}，所以很难根据MRV做出选择，而实际上，我们会优先选择那些会对其neighbor施加更多的约束的node，比如更靠中心的区域，或者与更多区域接邻的区域)</p>
+<h4 id="In-what-order-should-its-values-be-tried"><a href="#In-what-order-should-its-values-be-tried" class="headerlink" title="In what order should its values be tried?"></a>In what order should its values be tried?</h4><p>Once a variable has been selected, wthe algorithm has to decide on the order in which to examine values (constraints propagation). And the <strong>lest-constraining-value heuristic</strong> can be effective in some cases. It <strong>prefers the value that rule out/eliminate the fewest choices for the neighboring variables in the constraint graph</strong>. (为未来留出更多的可能性)</p>
+<h3 id="Interleaving-search-and-inference"><a href="#Interleaving-search-and-inference" class="headerlink" title="Interleaving search and inference"></a>Interleaving search and inference</h3><p><strong>So far we have seen how AC-3 and other algorithms can infer reductions in the domain of variables before we begin the search</strong>. But inference can be even more powerful in the course of a search: every time we make a choice of a value for a variable, we have a brand-new opportunity to infer new domain reductions on the neighboring variables.</p>
+<p>One of the simplest forms of inference is called <strong>forward checking</strong>. Whenever a variable X is assigned, the forward-checking process establishes arc consistency for it: <strong>for each unassigned variable Y that is connected to X by a constraint, delete from Y ’s domain any value that is inconsistent with the value chosen for X.</strong>(这与AC-3不同，AC-3检测的是整个graph中的arc consistency，然而forward checking只对于当前选择的node X进行arc consistency检测，删除那些与X通过constraint相连的nodes Y种的illegal values)</p>
+
+
+<p>For many problems the search will be more effective if we combine the MRV heuristic with forward checking.(而在上图中，显然没有使用MRV)</p>
+<p>Although forward checking detects many inconsistencies, it does not detect all of them. The problem is that it makes the current variable arc-consistent, but doesn’t look ahead and make all the other variables arc-consistent. For example, consider the third row of above picture. It shows that when WA is red and Q is green , both NT and SA are forced to be blue. <strong>Forward checking does not look far enough ahead</strong> to notice that this is an inconsistency: NT and SA are adjacent and so cannot have the same value.</p>
+<p><em>The algorithm called MAC (for Maintaining Arc Consistency (MAC)) detects this inconsistency. After a variable Xi is assigned a value, the INFERENCE procedure calls AC-3, but instead of a queue of all arcs in the CSP, we start with only the arcs (Xj,Xi) for all Xj that are unassigned variables that are neighbors of Xi. From there, AC-3 does constraint propagation in the usual way, and if any variable has its domain reduced to the empty set, the call to AC-3 fails and we know to backtrack immediately.</em></p>
+<h3 id="Intelligent-Backtracking-Looking-backward"><a href="#Intelligent-Backtracking-Looking-backward" class="headerlink" title="Intelligent Backtracking: Looking backward"></a>Intelligent Backtracking: Looking backward</h3><p>The BACKTRACKING-SEARCH algorithm in above picture has a very simple policy for what to do when a branch of the search fails: back up to the preceding variable and try a different value for it. This is called <strong>chronological backtracking</strong> because the most recent decision point is revisited. In this subsection, we consider better possibilities.</p>
+<p>A more intelligent approach to backtracking is to backtrack to a variable that might fix the problem—a variable that was responsible for making one of the possible values of SA impossible. To do this, we will keep track of a set of assignments that are in conflict with some value for SA. The set (in this case {Q=red,NSW =green,V =blue,}), is called the conflict set for SA. The backjumping method backtracks to the most recent assignment in the conflict set; in this case, backjumping would jump over Tasmania and try a new value for V . This method is easily implemented by a modification to BACKTRACK such that it accumulates the conflict set while checking for a legal value to assign. If no legal value is found, the algorithm should return the most recent element of the conflict set along with the failure indicator. (正如同它的名字描述的那样，intelligent backtracking是一种基于backtracking更加智能的方法，在普通的back tracking中，我们知道每当侦测到一个failure，我们backtrack回到上一层，但是这样往往也不能够得到正确的solution，而intelligent backtracking是一种“更聪明的”backtracking方法，它能够backtrack到导致了当前矛盾的value assignment，然后重新search)</p>
+<h1 id="Chapter-VII-LOGICAL-AGENTS"><a href="#Chapter-VII-LOGICAL-AGENTS" class="headerlink" title="Chapter VII: LOGICAL AGENTS"></a>Chapter VII: LOGICAL AGENTS</h1><p>How the intelligence of humans is achieved—<strong>not by purely reflex mechanisms but by processes of reasoning that operate on internal representations of knowledge</strong>. In AI, this approach to intelligence is embodied in knowledge-based agents.</p>
+<h2 id="7-1-Knowledge-based-agents"><a href="#7-1-Knowledge-based-agents" class="headerlink" title="7.1 Knowledge-based agents"></a>7.1 Knowledge-based agents</h2><p>The central component of a knowledge-based agent is its knowledge base, or KB. A knowledge base is a set of sentences. Each sentence is expressed in a language called a <strong>knowledge representation language</strong> and represents some assertion about the world. Sometimes we dignify a sentence with the name axiom, when the sentence is taken as given without being derived from other sentences.</p>
+<p>There must be a way to add new sentences to the knowledge base and a way to query what is known. The standard names for these operations are TELL and ASK, respectively. Both operations may involve inference—that is, <strong>deriving new sentences from old</strong>. Inference must obey the requirement that when one ASKs a question of the knowledge base, the answer should follow from what has been told (or TELLed) to the knowledge base previously.</p>
+<p>Like every agents, a KB agents takes a percept as input and returns an action. The agent maintains a knowledge base KB, which is known as knowledge base.</p>
+<p>Each time the agent is called, it does 3 things:</p>
+<ol>
+<li>it tells the KB what it perceives.</li>
+<li>it asks the knowledge base what actions it should take</li>
+<li>it tells the KB which action has been chosen and executes the action.</li>
+</ol>
+<h2 id="7-3-Logic"><a href="#7-3-Logic" class="headerlink" title="7.3 Logic"></a>7.3 Logic</h2><p>syntax:语言必须要遵守的规则</p>
+<p>semantics:语句的实际含义(defines the truth of each sentence in the world)</p>
+<p>model: <em>Informally, we may think of an example, having x men and y women sitting at a table playing bridge, and the sentence x + y = 4 is true when there are four people in total.</em> Formally, the possible models are just all possible assignments of real numbers to the variables x and y. Each such assignment fixes the truth of any sentence of arithmetic whose variables are x and y. If a sentence α is true in model m, we say that <strong>m satisfies α</strong> or <strong>m is a model of α</strong>. We use the notation M(α) to mean the set of all models of α.</p>
+<p>logical entailment [α |= β]: α |= β if and only if, in every model in which α is true, β is also true. (α |= β iff M ( α ) ⊆ M ( β ) .)</p>
+<p><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/655457/when-do-we-use-entailment-vs-implication">entailment vs inference</a>:In understanding entailment and inference, it might help to think of the set of all consequences of KB as a haystack and of α as a needle. Entailment is like the needle being in the haystack; inference is like finding it. </p>
+<blockquote>
+<p>Logical inference</p>
+<p>Model checking</p>
+</blockquote>
+<p>An inference algorithm that derives only entailed sentences is called sound or truth-preserving. Soundness is a highly desirable property. An unsound inference procedure essentially makes things up as it goes along—it announces the discovery of nonexistent needles.</p>
+<p>The property of completeness is also desirable: an inference algorithm is complete if it can derive any sentence that is entailed. For real haystacks, which are finite in extent, it seems obvious that a systematic examination can always decide whether the needle is in the haystack.</p>
+<h2 id="7-4-Propositional-Logic-A-very-simple-logic"><a href="#7-4-Propositional-Logic-A-very-simple-logic" class="headerlink" title="7.4 Propositional Logic: A very simple logic"></a>7.4 Propositional Logic: A very simple logic</h2><h3 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h3><p>The syntax of propositional logic defines the allowable sentences. The atomic sentences consist of a single proposition symbol. Each symbol stands for a propositional that can be true or false.</p>
+<p>Complex sentences are constructed from simpler sentences, by parentheses and logical connectives(¬,∧,∨,⇒,⇔).</p>
+<h3 id="Semantics"><a href="#Semantics" class="headerlink" title="Semantics"></a>Semantics</h3>
+
+<h2 id="7-5-Propositional-Theorem-Proving"><a href="#7-5-Propositional-Theorem-Proving" class="headerlink" title="7.5 Propositional Theorem Proving"></a>7.5 Propositional Theorem Proving</h2><p>So far, we have shown how to determine entailment by model checking: enumerating models and showing that the sentence must hold in all models. In this section, we show how entailment can be done by theorem proving: applying rules of inference directly to the sentences in our knowledge base to construct a proof of the desired sentence without consulting models.</p>
+<p><strong>Logical equivalence</strong>: two sentences α and β are logically equivalent if they are true in the same set of models.  [α≡β iff α|=β and β|=α]</p>
+<p><strong>Validity</strong>: A sentence is valid if it is true in all models. For example, the sentence P ∨ ¬P is valid. </p>
+<blockquote>
+<p>For any sentences α and β, α |= β if and only if the sentence (α ⇒ β) is valid.</p>
+</blockquote>
+<p><strong>Satisfiability</strong>: A sentence is satisfiable if it is true in, or satisfied by some model.</p>
+<h3 id="Inference-and-proof"><a href="#Inference-and-proof" class="headerlink" title="Inference and proof"></a>Inference and proof</h3><p><strong>Modus Ponens</strong>: α ⇒ β, α then β is true</p>
+<h3 id="Proof-by-resolution"><a href="#Proof-by-resolution" class="headerlink" title="Proof by resolution"></a>Proof by resolution</h3><p>The current section introduces a single inference rule, resolution, that yields a complete inference algorithm when coupled with any complete search algorithm.</p>
+<p><strong>Conjunctive normal form</strong>: a set of sentences connected by AND</p>
+<blockquote>
+<p>to show that KB |= α, we show that (KB ∧ ¬α) is unsatisfiable.</p>
+</blockquote>
+<h3 id="Forward-amp-Backward-chaining"><a href="#Forward-amp-Backward-chaining" class="headerlink" title="Forward&amp;Backward chaining"></a>Forward&amp;Backward chaining</h3><p><strong>The forward-chaining algorithm</strong> determines if a single proposition symbol q is entailed by a knowledge base of definite clauses. It begins from known facts (positive literals) in the knowledge base. If all the premises of an implication are known, then its conclusion is added to the set of known facts. For example, if L1,1 and Breeze are known and (L1,1 ∧ Breeze) ⇒ B1,1 is in the knowledge base, then B1,1 can be added. </p>
+<p>It is easy to see that forward chaining is sound: every inference is essentially an application of Modus Ponens. Forward chaining is also complete: every entailed atomic sentence will be derived. Forward chaining is an example of the general concept of data-driven reasoning—that is, reasoning in which the focus of attention starts with the known data. </p>
+<p><strong>The backward-chaining algorithm</strong>, as its name suggests, works backward from the query. If the query q is known to be true, then no work is needed. Otherwise, the algorithm finds those implications in the knowledge base whose conclusion is q. Backward chaining is a form of goal-directed reasoning. It is useful for answering specific questions such as “What shall I do now?” and “Where are my keys?”.</p>
+<h1 id="Chapter-X-CLASSICAL-PLANNING"><a href="#Chapter-X-CLASSICAL-PLANNING" class="headerlink" title="Chapter X: CLASSICAL PLANNING"></a>Chapter X: CLASSICAL PLANNING</h1><h2 id="10-1-Definition-of-classical-planning"><a href="#10-1-Definition-of-classical-planning" class="headerlink" title="10.1 Definition of classical planning"></a>10.1 Definition of classical planning</h2><p>The problem-solving agent of Chapter 3 can find sequences of actions that result in a goal state. But it deals with atomic representations of states and thus needs good domain-specific heuristics to perform well.</p>
+<p>The hybrid propositional logical agent of Chapter 7 can find plans without domain-specific heuristics because it uses domain-independent heuristics based on the logical structure of the problem. </p>
+<p>In response to this, planning researchers have settled on a factored representation — one in which a state of the world is represented by a collection of variables. We use a language called PDDL, the Planning Domain Definition Language.</p>
+<p>States: Each state is represented as a conjunction of fluents that are ground, functionless atoms. For example, a state in a package delivery problem might be At(Truck1,Melbourne) ∧ At(Truck2,Sydney). Database semantics is used: the closed-world assumption means that any fluents that are not mentioned are false, and the unique names assumption means that Truck1 and Truck2 are distinct.</p>
+<blockquote>
+<p>Closed world/ Open world assumption</p>
+</blockquote>
+<p>Actions: they are described by a set of action schema, for each action, it corresponds to one action schema, consists of Precondition and effect. For example, here is an example of flying a plane from one location to another:</p>
+
+
+<p>We say that action a is <strong>applicable</strong> in state s if the preconditions are satisfied by s. </p>
+<p>The result of executing action a in state s is defined as a state s which is represented by the set of fluents formed by starting with s, removing the fluents that appear as negative literals in the action’s effects (what we call the delete list or DEL(a)), and adding the fluents that are positive literals in the action’s effects (what we call the add list or ADD(a)):</p>
+<blockquote>
+<p>RESULT(s, a) = (s − DEL(a)) ∪ ADD(a)</p>
+</blockquote>
+<p>For example, with the action Fly(F22,SFO,JFK), we would remove At(F22,SFO) and add At(F22,JFK). (这表示一个动作“F22从SFO飞到了JFK”，这个动作必须在其对应的PRECONDITION都被满足的时候才是applicable的，也就是说在动作开始前需要满足“At(F22,SFO),Plane(F22),Airport(SFO),Airport(JFK)”，这意味着诸如Fly(Ironman, SFO, JFK)或者Fly(F22, Moon, Sun)的action是不行的，同时在动作结束后，F22已经抵达了JFK，我们需要修改状态，将At(F22,SFO)去掉，并且将At(F22,JFK)添加进来。)</p>
+<p><strong>Initial State</strong>: the initial state is a conjunction of ground atoms.</p>
+<h2 id="10-2-Algorithms-for-Planning-as-State-Space-Search"><a href="#10-2-Algorithms-for-Planning-as-State-Space-Search" class="headerlink" title="10.2 Algorithms for Planning as State-Space Search"></a>10.2 Algorithms for Planning as State-Space Search</h2><h3 id="Forward-progression-state-space-search"><a href="#Forward-progression-state-space-search" class="headerlink" title="Forward (progression) state-space search"></a>Forward (progression) state-space search</h3><p>Forward search is prone to exploring irrelevant actions. Consider the noble task of buying a copy of <em>AI: A Modern Approach</em> from an online bookseller. Suppose there is an action schema Buy(isbn) with effect Own(isbn). ISBNs are 10 digits, so this action schema represents 10 billion ground actions. An uninformed forward-search algorithm would have to start enumerating these 10 billion actions to find <strong>the one action</strong> that leads to the goal.(对于诸如如何将大象塞进冰箱里这种问题，我们也是很难去解决的，因为在每一个state都有太多的action需要去进行search，过于庞大的state space导致了这种search方法在大多数时候表现的并不好。)</p>
+<h3 id="Backward-regression-relevant-states-search"><a href="#Backward-regression-relevant-states-search" class="headerlink" title="Backward (regression) relevant-states search"></a>Backward (regression) relevant-states search</h3><p>In regression search we start at the goal and apply the actions backward until we find a sequence of steps that reaches the initial state. It is called relevant-states search because we only consider actions that are relevant to the goal (or current state).(这种search方法也有其局限性，那就是我们在知道goal state的情况下，需要知道goal state g的前一个state g’是什么样子的，从而一步一步backward search找到那条从goal state朝向initial state的path，但是比如8-queens问题，我们并不知道goal state的前一个state是什么样子的，所以用这种方法在该类问题上是很困难的。)</p>
+<h3 id="Heuristics-for-planning"><a href="#Heuristics-for-planning" class="headerlink" title="Heuristics for planning"></a>Heuristics for planning</h3><ol>
+<li>Ignore preconditions heuristic: drops all the preconditions from actions</li>
+<li>Ignore delete lists heuristic: create a relaxed version of original problem (goal state包含其他的一些axioms)</li>
+<li>Decomposition: create a set of independent subgoals</li>
+</ol>
+<h2 id="10-4-Other-Classical-Planning-Approaches"><a href="#10-4-Other-Classical-Planning-Approaches" class="headerlink" title="10.4 Other Classical Planning Approaches"></a>10.4 Other Classical Planning Approaches</h2><p>Currently we have several solutions for classical planning, like translating into a Boolean satisfiability problem，or into CSPs, etc. And actually in the real practice we have more choices.</p>
+<h1 id="APPENDIX"><a href="#APPENDIX" class="headerlink" title="APPENDIX"></a>APPENDIX</h1><h2 id="Monte-Carlo-Tree-Search"><a href="#Monte-Carlo-Tree-Search" class="headerlink" title="Monte Carlo Tree Search"></a>Monte Carlo Tree Search</h2><p>[<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/41176911]">https://www.zhihu.com/question/41176911]</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/POLIMI/" rel="tag"># POLIMI</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/24/Cryptography-Notes/" rel="prev" title="Cryptography Notes">
+                  <i class="fa fa-chevron-left"></i> Cryptography Notes
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/24/Recommender-Systems/" rel="next" title="Recommender Systems">
+                  Recommender Systems <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">RookieAju's</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
